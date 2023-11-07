@@ -1,0 +1,21 @@
+<div class="header">
+    <div class="logo">
+        <h1>App<h2>Store</h2></h1>
+    </div>
+    <div class="nav" *ngIf="!isLoggedIn">
+        <a routerLink="/product-page" routerLinkActive="active">Product Page</a>
+        <a routerLink="/sign-up" routerLinkActive="active">Sign Up</a>
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+        <i class="material-icons">favorite</i>
+        <span class="badge-size">0</span>
+        <span routerLink="/cart" class="material-icons" routerLinkActive="active">shopping_cart</span>
+        <span class="badge-size">0</span>
+    </div>
+    <div class="nav" *ngIf="isLoggedIn">
+        <mat-icon>person_outline</mat-icon>
+        <p *ngIf="isLoggedIn">{{this.currentUser?.user.email}}</p>
+        <button mat-icon-button (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+          </button>
+    </div>
+</div>

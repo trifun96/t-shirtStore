@@ -1,0 +1,47 @@
+<div class="form-container">
+    <div class="login-form">
+      <h1>Sign Up</h1>
+      <h3 routerLink="/login">Do you already have an account?</h3>
+      <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <div class="control">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            formControlName="email"
+          />
+          <div *ngIf="formGroup.get('email').invalid && (formGroup.get('email').touched)"
+         class="text-danger">Email is required</div>
+        </div>
+        <div class="control">
+            <label for="email">Username</label>
+            <input
+              type="username"
+              name="username"
+              id="username"
+              placeholder="Username"
+              formControlName="username"
+            />
+          </div>
+        <div class="control">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </div>
+        <div class="control">
+       <button class="submit">Sign Up</button>
+        </div>
+  
+        <div class="link">
+          <a routerLink="/product-page">Go to Home</a>
+        </div>
+      </form>
+    </div>
+  </div>

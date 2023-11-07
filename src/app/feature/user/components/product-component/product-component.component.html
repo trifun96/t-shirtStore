@@ -1,0 +1,41 @@
+<div class="search-container">
+    <div class="form__group field">
+        <input type="input" class="form__field" placeholder="Search" name="search" id='search' [ngModel]="search"
+            (ngModelChange)="onSearch($event)" required />
+    </div>
+        <button type="submit" class="submit-button" (click)="openFilter()">
+            <div class="filter-button">
+                <mat-icon>filter_list</mat-icon><p>Filteri</p>
+            </div>
+        </button>
+    <ng-container *ngIf="showSideNav">
+        <app-side-nav (closeEvent)="onCloseSideBar()" (priceFilterChanged)="onChangeFilterPrice($event)"(categoryChange)="applyFilterByCategory($event)" (sizeFilterChange)="applyFilterBySize($event)"></app-side-nav>
+    </ng-container>
+</div>
+<div class="product-container">
+    <mat-card class="example-card" *ngFor="let data of products | paginate: { itemsPerPage: 8, currentPage: page }">
+        <div (click)="openProductDetailModal(data)">
+            <mat-card-header>
+                <mat-card-subtitle>{{data.title}}</mat-card-subtitle>
+            </mat-card-header>
+            <img [src]="data.image" style="width:335px ;">
+            <mat-card-content>
+                <p>
+                    {{data.description}}
+                </p>
+            </mat-card-content>
+        </div>
+    </mat-card>
+    <div *ngIf="products && products.length === 0">
+        <app-search-message></app-search-message>
+    </div>
+    <div class="paginator" *ngIf="products && products.length !== 0 && products.length > 8 ">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>
+
+<div *ngIf="showProductDetail">
+    <app-shared-modal (closeEvent)="closeSharedModal()">
+        <app-product-detail [data]="selectedProduct"></app-product-detail>
+    </app-shared-modal>
+</div>

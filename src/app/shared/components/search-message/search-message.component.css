@@ -1,0 +1,51 @@
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 50vh;
+    margin-top: 50px;
+  
+  }
+  
+  .center{
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  h4{
+    font-weight: 200;
+  }
+  
+  .center h5{
+    font-size: 25px;
+    font-weight: 200;
+  }
+  
+  .center img{
+    width: 400px;
+  }
+
+  .submit-button{
+    background-color: rgb(174, 108, 33);
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 40%;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+  }
+ 
+  
+
+  
+
+  
+
+  
+  
+
+  

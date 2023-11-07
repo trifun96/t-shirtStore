@@ -1,0 +1,6 @@
+<button mat-raised-button color="warn" class="product-button" (click)="openProductForm()">Add product</button>
+<div *ngIf="isOpenModal">
+    <app-shared-modal (closeEvent)="closeProductFormModal()">
+        <app-add-product-form (submitEvent)="onSubmit()"></app-add-product-form>
+    </app-shared-modal>
+</div>

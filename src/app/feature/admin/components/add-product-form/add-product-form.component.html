@@ -1,0 +1,55 @@
+<form [formGroup]="productForm">
+  <h1>Add Product<h1>
+
+      <div class="control">
+        <div>
+          <input type="file" name="image" id="upload-file" (change)="onSelectFile($event)" id="image"
+            placeholder="Photo" formControlName="image" />
+          <img id="upload-file" [src]="!previewImage ? url : previewImage" class="preview-image" alt="Preview Image"
+            title="Preview Image" />
+        </div>
+      </div>
+      <div class="control">
+        <label for="title">Title</label>
+        <input type="text" name="title" class="input" id="title" placeholder="Title" formControlName="title" />
+      </div>
+      <div class="control">
+        <label for="description">Description</label>
+        <input type="text" name="description" class="input" id="description" placeholder="Description"
+          formControlName="description" />
+      </div>
+
+      <div class="custom-select" style="width:400px; margin-left: 10px;">
+        <label for="description">Sort</label>
+        <select formControlName="category">
+          <option><p>Novo</p></option>
+          <option><p>Staro</p></option>
+          <option><p>Outlet</p></option>
+        </select>
+      </div>
+
+      <div class="custom-select" style="width:400px; margin-left: 10px;">
+        <label for="description">Size</label>
+        <select formControlName="size">
+          <option><p>S</p></option>
+          <option><p>M</p></option>
+          <option><p>L</p></option>
+          <option><p>XL</p></option>
+          <option><p>XXL</p></option>
+        </select>
+      </div>
+      <div class="control">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" class="input" name="quantity" min="1" max="10000"
+          formControlName="quantity" />
+      </div>
+      <div class="control">
+        <label for="price">Price</label>
+        <input type="number" id="price" name="price" class="input" min="1" max="10000" formControlName="price" />
+      </div>
+
+      <div class="control">
+        <button type="submit" class="submit-button" (click)="postProductsData()">
+          <div>Add product</div>
+        </button>
+      </div>
