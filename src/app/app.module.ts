@@ -18,7 +18,7 @@ import { AuthEffect } from './feature/user/store/effects';
 import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { ProductsEffect } from './feature/admin/store/effects';
-import { productReducer } from './feature/admin/store/reducer';
+import { state } from './shared/store/store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,10 +33,7 @@ import { productReducer } from './feature/admin/store/reducer';
 
     MatIconModule,
     RouterModule.forRoot([]),
-    StoreModule.forRoot({
-      authReducer: authReducer,
-      productReducer: productReducer,
-    }),
+    StoreModule.forRoot(state),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: false,

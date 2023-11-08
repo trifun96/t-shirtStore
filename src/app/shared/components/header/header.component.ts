@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/userInterface.interface';
 import { AuthService } from 'src/app/core/services/auth-service.service';
+import { Observable } from 'rxjs';
+import { CartService } from 'src/app/core/services/cart-service.service';
+import { FavoriteService } from 'src/app/core/services/favorite-service.service';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +13,10 @@ import { AuthService } from 'src/app/core/services/auth-service.service';
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean;
   currentUser: User | null;
+  totalItem$: Observable<number> = new Observable<number>();
+  totalFavoriteItem$: Observable<number> = new Observable<number>();
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private cart:CartService, private favoriteService:FavoriteService) {}
 
   ngOnInit(): void {
     this.authService.currentUser$.subscribe((currentUser) => {
@@ -25,6 +30,8 @@ export class HeaderComponent implements OnInit {
       
     });
     this.isLoggedIn = this.authService.isLoggedIn();
+    this.totalItem$ = this.cart.totalItem$
+    this.totalFavoriteItem$ = this.favoriteService.totalFavoriteItem$
 
   }
 

@@ -19,10 +19,12 @@ const initialState: AuthStateInterface = {
         ...state,
         currentUser: action.currentUser,
       })),
-      on(authActions.registerFailure, (state, action) => ({
+      on(authActions.registerFailure, (state, action) => { 
+        console.log('Register failure', action)
+        return{
         ...state,
         validationErrors: action.errors,
-      })),
+  }}),
       on(authActions.login, (state) => ({
         ...state,
         validationErrors: null,

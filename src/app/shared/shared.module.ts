@@ -17,11 +17,14 @@ import {NgIf} from '@angular/common';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatListModule} from '@angular/material/list'
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { ToastrModule } from 'ngx-toastr';
+import { EmptyCardComponent } from './components/empty-card/empty-card.component';
 
 @NgModule({
-  declarations: [HeaderComponent, SharedModalComponent, SharedModalComponent, FooterComponent, SearchMessageComponent, SideNavComponent, ProductDetailComponent],
+  declarations: [HeaderComponent, SharedModalComponent, SharedModalComponent, FooterComponent, SearchMessageComponent, SideNavComponent, ProductDetailComponent, EmptyCardComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -34,11 +37,13 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
     MatPaginatorModule,
     NgxPaginationModule,
     MatSidenavModule,
+    MatFormFieldModule,
     MatToolbarModule,
     MatListModule,
     NgIf,
+    ToastrModule.forRoot(),
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
   ],
-   exports:[RouterModule, ReactiveFormsModule, MatListModule, MatSidenavModule, MatToolbarModule, MatCardModule, NgIf, MatPaginatorModule, MatSidenavModule, NgxPaginationModule, NgxSpinnerModule, FormsModule, HttpClientModule, MatIconModule,SharedModalComponent,MatButtonModule,CommonModule, HeaderComponent, FooterComponent, SearchMessageComponent, SideNavComponent, ProductDetailComponent]
+   exports:[RouterModule, ReactiveFormsModule, MatListModule,ToastrModule, MatSidenavModule, MatFormFieldModule, MatToolbarModule, MatCardModule, NgIf, MatPaginatorModule, MatSidenavModule, NgxPaginationModule, NgxSpinnerModule, FormsModule, HttpClientModule, MatIconModule,SharedModalComponent,MatButtonModule,CommonModule, HeaderComponent, FooterComponent, SearchMessageComponent, SideNavComponent, ProductDetailComponent, EmptyCardComponent]
 })
 export class SharedModule { }

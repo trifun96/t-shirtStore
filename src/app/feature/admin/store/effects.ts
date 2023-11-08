@@ -7,7 +7,6 @@ import { productAction } from './actions';
 import { catchError, map, mergeMap } from 'rxjs';
 import { of } from 'rxjs';
 import { ProductInterface } from 'src/app/shared/models/productInterface.interdace';
-import { ArticleResponseInterface } from 'src/app/shared/models/articleResponse.interface';
 
 @Injectable()
 export class ProductsEffect {
@@ -18,11 +17,20 @@ export class ProductsEffect {
     private auth: AuthService
   ) {}
 
-  registerEffect$ = createEffect(() =>
+  productsEffect$ = createEffect(() =>
     this.actions$.pipe(
       ofType(productAction.postProducts),
       mergeMap(({ request }) => {
-        if (!(request.title && request.quantity && request.price && request.image && request.description && request.category)) {
+        if (
+          !(
+            request.title &&
+            request.quantity &&
+            request.price &&
+            request.image &&
+            request.description &&
+            request.category
+          )
+        ) {
           return of(productAction.postProductsFailure());
         }
         return this.apiService
@@ -36,14 +44,15 @@ export class ProductsEffect {
     )
   );
 
-  getRegisterEffect$ = createEffect(() =>
+  getProductsEffect$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(productAction.getProducts), // Kada se pozove akcija 'GetProducts'
+      ofType(productAction.getProducts),
       mergeMap(() =>
         this.apiService.getProducts().pipe(
-          map((currentArticle:ProductInterface) => productAction.getProductsSuccess({ currentArticle })), // Ako uspe, dispečujemo akciju za uspešno dobijanje podataka
-          catchError((error) => of(productAction.getProductsFailure({ error })) // Ako se desi greška, dispečujemo akciju za grešku
-          )
+          map((currentArticle: ProductInterface) =>
+            productAction.getProductsSuccess({ currentArticle })
+          ),
+          catchError((error) => of(productAction.getProductsFailure()))
         )
       )
     )

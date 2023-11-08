@@ -11,6 +11,7 @@ export class SharedModalComponent {
   constructor() {}
 
   ngOnInit(): void {}
+  
   closeButton() {
     this.closeEvent.emit();
   }

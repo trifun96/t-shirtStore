@@ -6,10 +6,10 @@
         <a routerLink="/product-page" routerLinkActive="active">Product Page</a>
         <a routerLink="/sign-up" routerLinkActive="active">Sign Up</a>
         <a routerLink="/login" routerLinkActive="active">Login</a>
-        <i class="material-icons">favorite</i>
-        <span class="badge-size">0</span>
+        <i class="material-icons" routerLink="/favorite-cart">favorite</i>
+        <span class="badge-size">{{totalFavoriteItem$ | async}}</span>
         <span routerLink="/cart" class="material-icons" routerLinkActive="active">shopping_cart</span>
-        <span class="badge-size">0</span>
+        <span class="badge-size">{{totalItem$ | async}}</span>
     </div>
     <div class="nav" *ngIf="isLoggedIn">
         <mat-icon>person_outline</mat-icon>

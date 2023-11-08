@@ -28,7 +28,7 @@ export class SideNavComponent {
     this.sizeFilterChange.emit({checked, size})
   }
 
-  onClose() {
-    this.closeEvent.emit()
+  clearFilter() {
+
   }
 }

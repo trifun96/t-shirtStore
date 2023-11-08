@@ -5,20 +5,22 @@ import { Store } from '@ngrx/store';
 import { AuthService } from 'src/app/core/services/auth-service.service';
 import { LoginRequestInterface } from 'src/app/shared/models/loginRequestInterface.interface';
 import { authActions } from '../../store/actions';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
   public registrationUser: LoginRequestInterface;
 
   constructor(
     private auth: AuthService,
     private fb: FormBuilder,
     private router: Router,
-    private store:Store
+    private store: Store,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -33,12 +35,10 @@ export class LoginComponent implements OnInit{
   });
 
   onSubmit() {
-    this.auth.login(this.loginForm.value).subscribe((response) => {
-      console.log(response, 'registrovan');
-    });
-    const request = this.loginForm.getRawValue()
-    this.store.dispatch(authActions.login({request}))
-    console.log(request,'request')
+    this.auth.login(this.loginForm.value).subscribe((response) => {});
+    const request = this.loginForm.getRawValue();
+    this.store.dispatch(authActions.login({ request }));
+    this.toastr.success('You are successful login!');
     this.loginForm.reset();
   }
 }

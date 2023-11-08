@@ -36,6 +36,6 @@
 
 <div *ngIf="showProductDetail">
     <app-shared-modal (closeEvent)="closeSharedModal()">
-        <app-product-detail [data]="selectedProduct"></app-product-detail>
+        <app-product-detail [data]="selectedProduct" (closeProductModal)="closeSharedModal($event)"></app-product-detail>
     </app-shared-modal>
 </div>
