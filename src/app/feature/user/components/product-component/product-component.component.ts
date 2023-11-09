@@ -105,6 +105,13 @@ export class ProductComponent {
     }
   }
 
+  clearAllFilters(){
+    this.selectedCategories = [];
+    this.selectedSize = [];
+    this.selectedPrice = null;
+    this.products = this.originalProducts; 
+  }
+
   onCloseSideBar() {
     this.showSideNav = false;
   }

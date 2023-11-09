@@ -1,5 +1,5 @@
 <form [formGroup]="productForm">
-  <h1>Add Product<h1>
+  <h1>{{isEdit ? 'Edit product' : 'Add product'}}<h1>
 <div class="form-container">
   <div class="control">
     <div>
@@ -50,7 +50,7 @@
 
   <div class="control">
     <button type="submit" class="submit-button" (click)="postProductsData()">
-      <div>Add product</div>
+      <div>{{isEdit ? 'Edit product' : 'Add product'}}</div>
     </button>
   </div>
 </div>

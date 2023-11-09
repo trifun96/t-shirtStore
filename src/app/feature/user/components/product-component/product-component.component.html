@@ -9,7 +9,7 @@
             </div>
         </button>
     <ng-container *ngIf="showSideNav">
-        <app-side-nav (closeEvent)="onCloseSideBar()" (priceFilterChanged)="onChangeFilterPrice($event)"(categoryChange)="applyFilterByCategory($event)" (sizeFilterChange)="applyFilterBySize($event)"></app-side-nav>
+        <app-side-nav (clearFilters)="clearAllFilters()" (closeEvent)="onCloseSideBar()" (priceFilterChanged)="onChangeFilterPrice($event)"(categoryChange)="applyFilterByCategory($event)" (sizeFilterChange)="applyFilterBySize($event)"></app-side-nav>
     </ng-container>
 </div>
 <div class="product-container">

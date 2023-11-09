@@ -43,11 +43,11 @@ export class ProductDetailComponent implements OnInit {
   addToCartItem(data: ProductInterface) {
     this.cart.addToCart(data);
     this.closeProductModal.emit()
-    this.toastr.success('You are successfully added product to cart');
+    this.toastr.success('You are successfully added product to cart.');
   }
 
   addToFavorite(favoriteData:ProductInterface) {
     this.favoriteService.addFavoriteItem(favoriteData);
-    this.toastr.success('You are successfully added product to favorite');
+    this.toastr.success('You are successfully added product to favorite.');
   }
 }

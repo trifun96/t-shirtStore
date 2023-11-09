@@ -1,18 +1,33 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { productAction } from '../../store/actions';
 import { ProductInterface } from 'src/app/shared/models/productInterface.interdace';
+import { ApiService } from 'src/app/core/services/api-service.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-product-form',
   templateUrl: './add-product-form.component.html',
   styleUrls: ['./add-product-form.component.css'],
 })
-export class AddProductFormComponent {
+export class AddProductFormComponent implements OnInit {
   @Output() submitEvent = new EventEmitter<boolean>();
+  @Input() editData: ProductInterface;
+  @Input() isEdit: boolean;
+  public productsData: ProductInterface[] = [];
 
-  constructor(private fb: FormBuilder, private store: Store) {}
+  constructor(
+    private fb: FormBuilder,
+    private store: Store,
+    private api: ApiService,
+    private toastr: ToastrService
+  ) {}
   productsModelObj: ProductInterface = new ProductInterface();
   previewImage: string = '';
 
@@ -20,35 +35,73 @@ export class AddProductFormComponent {
 
   hasPreviewImage: boolean = false;
 
-  productForm = this.fb.nonNullable.group({
-    image: ['', Validators.required],
-    title: ['', Validators.required],
-    description: ['', Validators.required],
-    quantity: [null, Validators.required],
-    price: [null, Validators.required],
-    category: ['', Validators.required],
-    size:['', Validators.required]
+  ngOnInit(): void {
+    console.log(this.isEdit, ' isEdit');
+    if (this.isEdit) {
+      this.productForm.controls['title'].setValue(this.editData.title);
+      this.productForm.controls['description'].setValue(
+        this.editData.description
+      );
+      this.productForm.controls['quantity'].setValue(this.editData.quantity);
+      this.productForm.controls['price'].setValue(this.editData.price);
+      this.productForm.controls['category'].setValue(this.editData.category);
+      this.productForm.controls['size'].setValue(this.editData.size);
+      this.hasPreviewImage = true;
+      this.previewImage = this.editData.image;
+      this.productsModelObj.image = this.editData.image;
+    }
+  }
+  productForm = new FormGroup({
+    image: new FormControl(this.productsModelObj.image, Validators.required),
+    title: new FormControl(this.productsModelObj.title),
+    description: new FormControl(this.productsModelObj.description),
+    quantity: new FormControl(this.productsModelObj.quantity),
+    price: new FormControl(this.productsModelObj.price),
+    category: new FormControl(this.productsModelObj.title),
+    size: new FormControl(this.productsModelObj.title),
   });
 
   onSelectFile(e) {
     if (e.target.files) {
       var reader = new FileReader();
-
+      const image = reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
-        const base64Image = event.target.result;
         this.hasPreviewImage = true;
-        this.previewImage = base64Image;
+        this.previewImage = event.target.result;
+        this.productsModelObj.image = event.target.result;
       };
-
-      reader.readAsDataURL(e.target.files[0]);
     }
   }
 
   postProductsData() {
-    const request = this.productForm.getRawValue();
-    request.image = this.previewImage;
-    this.productForm.reset();
-    this.store.dispatch(productAction.postProducts({ request }));
-    this.submitEvent.emit();
+    this.productsModelObj.title = this.productForm.value.title;
+    this.productsModelObj.description = this.productForm.value.description;
+    this.productsModelObj.quantity = this.productForm.value.quantity;
+    this.productsModelObj.price = this.productForm.value.price;
+    this.productsModelObj.category = this.productForm.value.category;
+    this.productsModelObj.size = this.productForm.value.size;
+
+    const request = this.productsModelObj;
+
+    if (this.isEdit) {
+      this.api.updateProducts(request, this.editData.id).subscribe((res) => {
+        this.toastr.success('Your product is successfully updated!');
+      });
+      this.getProducts();
+      this.submitEvent.emit();
+      return;
+    } else {
+      this.store.dispatch(productAction.postProducts({ request }));
+      this.getProducts();
+      this.toastr.success('Your product is successfully added to group!');
+      this.productForm.reset();
+      this.submitEvent.emit();
+    }
+  }
+
+  private getProducts() {
+    this.api.getProducts().subscribe((res) => {
+      this.productsData = res;
+    });
   }
 }

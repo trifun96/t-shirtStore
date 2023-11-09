@@ -4,7 +4,7 @@ import { ProductInterface } from 'src/app/shared/models/productInterface.interda
 export const productAction = createActionGroup({
   source: 'product',
   events: {
-    PostProducts: props<{ request: ProductInterface }>(),
+    PostProducts: props<{ request: any }>(),
     'Post products success': props<{ currentArticle: ProductInterface }>(),
     'Post products failure': emptyProps(),
 

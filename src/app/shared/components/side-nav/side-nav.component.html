@@ -16,46 +16,46 @@
                 <a mat-list-item>Sortiranje</a>
                 <div class="checkbox-container">
                     <div class="custom-checkbox">
-                        <input type="checkbox" id="customCheckbox"  (change)="onCheckboxChange($event, 'Novo')" />
+                        <input type="checkbox" id="customCheckbox" (change)="onCheckboxChange($event, 'Novo')" />
                         <label for="customCheckbox">Novo</label>
                     </div>
                     <div class="custom-checkbox">
-                        <input type="checkbox" id="customCheckbox1"  (change)="onCheckboxChange($event, 'Staro')"/>
+                        <input type="checkbox" id="customCheckbox1" (change)="onCheckboxChange($event, 'Staro')" />
                         <label for="customCheckbox1">Staro</label>
                     </div>
                     <div class="custom-checkbox">
-                        <input type="checkbox" id="customCheckbox2"  (change)="onCheckboxChange($event, 'Outlet')" />
+                        <input type="checkbox" id="customCheckbox2" (change)="onCheckboxChange($event, 'Outlet')" />
                         <label for="customCheckbox2">Outlet</label>
                     </div>
                 </div>
                 <a mat-list-item>Velicina</a>
                 <div class="checkbox-container">
                     <div class="custom-checkbox">
-                        <input type="checkbox" id="customCheckbox3"  (change)="onCheckboxSelectSize($event, 'S')" />
+                        <input type="checkbox" id="customCheckbox3" (change)="onCheckboxSelectSize($event, 'S')" />
                         <label for="customCheckbox3">S</label>
                     </div>
                     <div class="custom-checkbox">
-                        <input type="checkbox" id="customCheckbox4"  (change)="onCheckboxSelectSize($event, 'M')"/>
+                        <input type="checkbox" id="customCheckbox4" (change)="onCheckboxSelectSize($event, 'M')" />
                         <label for="customCheckbox4">M</label>
                     </div>
                     <div class="custom-checkbox">
-                        <input type="checkbox" id="customCheckbox5"  (change)="onCheckboxSelectSize($event, 'L')" />
+                        <input type="checkbox" id="customCheckbox5" (change)="onCheckboxSelectSize($event, 'L')" />
                         <label for="customCheckbox5">L</label>
                     </div>
                     <div class="custom-checkbox">
-                        <input type="checkbox" id="customCheckbox6"  (change)="onCheckboxSelectSize($event, 'XL')" />
+                        <input type="checkbox" id="customCheckbox6" (change)="onCheckboxSelectSize($event, 'XL')" />
                         <label for="customCheckbox6">XL</label>
                     </div>
                     <div class="custom-checkbox">
-                        <input type="checkbox" id="customCheckbox7"  (change)="onCheckboxSelectSize($event, 'XXL')" />
+                        <input type="checkbox" id="customCheckbox7" (change)="onCheckboxSelectSize($event, 'XXL')" />
                         <label for="customCheckbox7">XXL</label>
                     </div>
                 </div>
-                    <button type="submit" class="submit-button" (click)="clearFilter()">
-                        <div class="filter-button">
-                            <p>Clear Filter</p>
-                        </div>
-                    </button>
+                <button type="submit" class="submit-button" (click)="clearFilter()">
+                    <div class="filter-button">
+                        <p>Clear Filter</p>
+                    </div>
+                </button>
             </mat-nav-list>
         </div>
     </mat-sidenav-content>

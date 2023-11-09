@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ProductInterface } from 'src/app/shared/models/productInterface.interdace';
 import { map } from 'rxjs';
 import { ArticleResponseInterface } from 'src/app/shared/models/articleResponse.interface';
+import { OrderInterface } from 'src/app/shared/models/order.interface';
 @Injectable({
   providedIn: 'root',
 })
@@ -26,6 +27,23 @@ export class ApiService {
   }
 
   getProducts() {
-    return this.http.get<ProductInterface>('http://localhost:3000/products');
+    return this.http.get<any>('http://localhost:3000/products');
+  }
+
+  deleteProducts(id: number) {
+    return this.http.delete<any>('http://localhost:3000/products/' + id);
+  }
+
+  updateProducts(data: any, id: number) {
+    return this.http.put<any>('http://localhost:3000/products/' + id, data);
+
+  };
+
+  postOrders(data: OrderInterface) {
+    return this.http.post<OrderInterface>('http://localhost:3000/orders', data);
+  }
+
+  getOrders() {
+    return this.http.get<OrderInterface>('http://localhost3000/orders');
   }
 }
