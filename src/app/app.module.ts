@@ -3,14 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HeaderComponent } from './shared/components/header/header.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { authReducer } from './feature/user/store/reducer';
+
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
@@ -19,6 +18,7 @@ import { SharedModule } from './shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { ProductsEffect } from './feature/admin/store/effects';
 import { state } from './shared/store/store';
+import { AuthService } from './core/services/auth-service.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -45,7 +45,7 @@ import { state } from './shared/store/store';
     }),
     EffectsModule.forRoot([AuthEffect, ProductsEffect]),
   ],
-  providers: [],
+  providers: [ AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

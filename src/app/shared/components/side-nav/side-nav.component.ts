@@ -9,9 +9,9 @@ export class SideNavComponent {
   @Output() priceFilterChanged = new EventEmitter<any>();
   @Output() clearFilters = new EventEmitter<void>();
   @Output() closeEvent = new EventEmitter<boolean>();
-  @Output() categoryChange = new EventEmitter<{
+  @Output() subCategoryChange = new EventEmitter<{
     checked: boolean;
-    category: string;
+    subCategory: string;
   }>();
   @Output() sizeFilterChange = new EventEmitter<{
     checked: boolean;
@@ -24,9 +24,9 @@ export class SideNavComponent {
     this.priceFilterChanged.emit(price);
   }
 
-  onCheckboxChange(event: any, category: string) {
+  onCheckboxChange(event: any, subCategory: string) {
     const checked = event.target.checked;
-    this.categoryChange.emit({ checked, category });
+    this.subCategoryChange.emit({ checked, subCategory });
   }
 
   onCheckboxSelectSize(event: any, size: string) {

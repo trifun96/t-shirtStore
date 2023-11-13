@@ -1,0 +1,49 @@
+.discount-banner {
+    position: relative;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 20px;
+    overflow: hidden; /* Dodajemo overflow kako bismo osigurali da se pseudo-element ne širi izvan roditeljskog div-a */
+}
+
+.discount-banner::before {
+    content: '';
+    background-image: url('/assets/images/slika1.webp'); /* Postavite putanju do slike */
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: brightness(0.5); 
+    z-index: -1;
+}
+
+.discount-banner:hover::before {
+    filter: brightness(0.3); 
+    transition: 0.7s;
+}
+
+h1 {
+    font-size: 120px;
+    font-weight: 100;
+    color: #ded6d6;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 20px 20px 10px rgba(0, 0, 0, 0.5);
+}
+
+p{
+    font-size: 30px;
+    font-weight: 300;
+    color: #ded6d6;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 20px 20px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 30px;
+}

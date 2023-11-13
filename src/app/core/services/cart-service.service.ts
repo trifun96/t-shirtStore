@@ -12,6 +12,7 @@ export class CartService {
   public totalPrice = 0;
 
   constructor() {
+    this.loadCartItemsFromLocalStorage();
     this.cartList$.asObservable();
   }
 
@@ -23,6 +24,7 @@ export class CartService {
     this.cartItemList.push(product);
     this.cartList$.next(this.cartItemList);
     this.totalItem$.next(this.cartItemList.length);
+    this.saveCartItemsToLocalStorage();
   }
 
   removeFromCart(product: ProductInterface) {
@@ -32,6 +34,7 @@ export class CartService {
     }
     this.cartList$.next(this.cartItemList);
     this.totalItem$.next(this.cartItemList.length);
+    this.saveCartItemsToLocalStorage;
   }
 
   decreaseQuantity(cartItem: ProductInterface) {
@@ -58,5 +61,18 @@ export class CartService {
       0
     );
     return this.totalPrice;
+  }
+
+  private loadCartItemsFromLocalStorage() {
+    const storedCartItems = localStorage.getItem('cartItems');
+    if (storedCartItems) {
+      this.cartItemList = JSON.parse(storedCartItems);
+      this.cartList$.next(this.cartItemList);
+      this.totalItem$.next(this.cartItemList.length);
+    }
+  }
+
+  public saveCartItemsToLocalStorage() {
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItemList));
   }
 }

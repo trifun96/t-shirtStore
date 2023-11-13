@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
+import { OrderComponent } from './components/order-component/order-component.component';
+
 
 const routes: Routes = [
   {
@@ -12,8 +14,12 @@ const routes: Routes = [
         path:'products', component:AdminPageComponent,
       },
       {
+        path:'orders', component:OrderComponent
+      },
+      {
         path:'', redirectTo:'/admin-products', pathMatch:'full'
-      }
+      },
+      
     ]
   }
 ]

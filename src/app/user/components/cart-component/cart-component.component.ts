@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { CartService } from 'src/app/core/services/cart-service.service';
 import { ProductInterface } from 'src/app/shared/models/productInterface.interdace';
 
+
 @Component({
   selector: 'app-cart-component',
   templateUrl: './cart-component.component.html',
@@ -24,6 +25,7 @@ export class CartComponent {
   removeProduct(cartItem: ProductInterface) {
     this.cartService.removeFromCart(cartItem);
     this.calculateTotalPrice();
+    this.cartService.saveCartItemsToLocalStorage()
   }
 
   decreaseQuantity(cartItem: ProductInterface) {

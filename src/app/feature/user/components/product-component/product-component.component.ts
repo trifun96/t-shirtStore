@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -11,7 +11,7 @@ import { ProductInterface } from 'src/app/shared/models/productInterface.interda
   styleUrls: ['./product-component.component.css'],
 })
 export class ProductComponent {
-  public products: ProductInterface[];
+  @Input() public products: ProductInterface[];
   public filterProducts: ProductInterface[];
   public originalProducts: ProductInterface[];
   public selectedCategories: string[] = [];
@@ -31,13 +31,13 @@ export class ProductComponent {
       .subscribe((currentArticle) => {
         if (currentArticle) {
           this.spinner.hide();
-          this.products = currentArticle;
-          this.originalProducts = currentArticle;
-          this.filterProducts = currentArticle;
+          this.originalProducts = this.products;
+          this.filterProducts = this.products;
         } else {
           this.spinner.show();
         }
       });
+      
   }
 
   onSearch(newValue: string) {
@@ -57,14 +57,14 @@ export class ProductComponent {
     this.applyFilters()
   }
 
-  applyFilterByCategory(eventData: { checked: boolean; category: string }) {
+  applyFilterByCategory(eventData: { checked: boolean; subCategory: string }) {
     const checked = eventData.checked;
-    const category = eventData.category;
+    const subCategory = eventData.subCategory;
   
     if (checked) {
-      this.selectedCategories.push(category);
+      this.selectedCategories.push(subCategory);
     } else {
-      const index = this.selectedCategories.indexOf(category);
+      const index = this.selectedCategories.indexOf(subCategory);
       if (index !== -1) {
         this.selectedCategories.splice(index, 1);
       }
@@ -98,7 +98,7 @@ export class ProductComponent {
       this.products = this.originalProducts;
     } else {
       this.products = this.filterProducts.filter((element) =>
-        (selectedCategories.length === 0 || selectedCategories.includes(element.category)) &&
+        (selectedCategories.length === 0 || selectedCategories.includes(element.subCategory)) &&
         (selectedSize.length === 0 || selectedSize.includes(element.size)) &&
         (!priceFilter || element.price >= priceFilter) 
       );

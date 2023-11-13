@@ -11,9 +11,9 @@ export class AuthService {
   public registrationUser: any;
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   public currentUser$ = this.currentUserSubject.asObservable();
+  private userLoggedIn = new BehaviorSubject<boolean>(false)
 
   constructor(private router: Router, private api: ApiService) {
-    
     const userFromStorage = localStorage.getItem('currentUser');
     if (userFromStorage) {
       this.currentUserSubject.next(JSON.parse(userFromStorage));
@@ -52,9 +52,11 @@ export class AuthService {
     this.setCurrentUser(null);
     localStorage.removeItem('currentUser');
     this.router.navigate(['product-page'])
+    this.userLoggedIn.next(false);
   }
 
   login({ email, password }: any): Observable<any> {
+    this.userLoggedIn.next(true);
     if (email === 'admin123@gmail.com' && password === 'admin123') {
       const userToSave = { user: { email, password } };
       this.setCurrentUser(userToSave);

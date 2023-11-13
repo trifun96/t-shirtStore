@@ -13,6 +13,15 @@ import { ProductInterface } from 'src/app/shared/models/productInterface.interda
   styleUrls: ['./user-page.component.css'],
 })
 export class UserPageComponent implements OnInit {
+  public userComments = [{
+    name:'Trifun markovic',
+    description:'Svenajbolje'
+  },
+{
+  name:'test',
+  description:'test'
+}
+]
   products$: Observable<ProductInterface>;
   constructor(private store: Store) {
     this.products$ = this.store.select(selectCurrentArticle);

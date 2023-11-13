@@ -5,6 +5,7 @@ export class ProductInterface {
     description:string
     quantity: number;
     category:string
+    subCategory:string
     price:number
     size:string
 

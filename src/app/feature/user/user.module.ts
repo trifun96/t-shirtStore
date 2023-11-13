@@ -9,9 +9,17 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { MatStepperModule } from '@angular/material/stepper';
 import { ProductComponent } from './components/product-component/product-component.component';
-import { CartComponent } from './components/cart-component/cart-component.component';
+import { CartComponent } from '../../user/components/cart-component/cart-component.component';
 import { FavoriteComponent } from './components/favorite-component/favorite-component.component';
 import { OrderFormComponent } from './components/order-form/order-form.component';
+import { NewsletterComponent } from './components/newsletter/newsletter.component';
+import { DeliveryInformationComponent } from './components/delivery-information/delivery-information.component';
+import { FooterInformationComponent } from './components/footer-information/footer-information.component';
+import { BannerPageComponent } from './components/banner-page/banner-page.component';
+import { NewCollectionComponent } from './components/new-collection/new-collection.component';
+import { ManCollectionComponent } from './components/man-collection/man-collection.component';
+import { WomanCollectionComponent } from './components/woman-collection/woman-collection.component';
+import { AllProductsComponent } from './components/all-products/all-products.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +30,15 @@ import { OrderFormComponent } from './components/order-form/order-form.component
     CartComponent,
     FavoriteComponent,
     OrderFormComponent,
+    NewsletterComponent,
+    DeliveryInformationComponent,
+    FooterInformationComponent,
+    BannerPageComponent,
+    NewCollectionComponent,
+    ManCollectionComponent,
+    WomanCollectionComponent,
+    AllProductsComponent,
+
   ],
 
     imports: [ CommonModule, UserRoutingModule, StoreModule, SharedModule, MatStepperModule]

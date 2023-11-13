@@ -9,12 +9,15 @@ export class FavoriteService {
   public favoriteItemList: any = [];
   public favoriteList$ = new BehaviorSubject<ProductInterface[]>([]);
   public totalFavoriteItem$ = new BehaviorSubject<number>(0);
-  constructor() {}
+  constructor() {
+    this.loadFavoriteItemsFromLocalStorage()
+  }
 
   addFavoriteItem(favoriteItem: ProductInterface) {
     this.favoriteItemList.push(favoriteItem);
     this.favoriteList$.next(this.favoriteItemList);
     this.totalFavoriteItem$.next(this.favoriteItemList.length);
+    this.saveFavoriteItemsToLocalStorage()
   }
 
   removeFavoriteItem(favoriteItem:ProductInterface) {
@@ -24,5 +27,19 @@ export class FavoriteService {
     }
     this.favoriteList$.next(this.favoriteItemList);
     this.totalFavoriteItem$.next(this.favoriteItemList.length);
+    this.saveFavoriteItemsToLocalStorage()
+  }
+
+  private loadFavoriteItemsFromLocalStorage() {
+    const storedFavoriteItems = localStorage.getItem('favoriteItems');
+    if (storedFavoriteItems) {
+      this.favoriteItemList = JSON.parse(storedFavoriteItems);
+      this.favoriteList$.next(this.favoriteItemList);
+      this.totalFavoriteItem$.next(this.favoriteItemList.length);
+    }
+  }
+
+  private saveFavoriteItemsToLocalStorage() {
+    localStorage.setItem('favoriteItems', JSON.stringify(this.favoriteItemList));
   }
 }

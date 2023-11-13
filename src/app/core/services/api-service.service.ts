@@ -44,6 +44,6 @@ export class ApiService {
   }
 
   getOrders() {
-    return this.http.get<OrderInterface>('http://localhost3000/orders');
+    return this.http.get<any>('http://localhost:3000/orders');
   }
 }

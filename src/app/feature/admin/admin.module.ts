@@ -15,10 +15,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { OrderComponent } from './components/order-component/order-component.component';
 
 
 @NgModule({
-  declarations: [AdminDashboardComponent, AdminPageComponent, AddProductFormComponent],
+  declarations: [AdminDashboardComponent, AdminPageComponent, AddProductFormComponent, OrderComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

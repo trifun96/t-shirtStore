@@ -2,12 +2,12 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #333;
+    background-color: #ffffff;
 }
 
 .header {
-    background-color: rgb(89, 71, 71);
-    color: #fff;
+    background-color: rgb(255, 255, 255);
+    color: #050505;
     padding: 10px 0;
     display: flex;
     justify-content: space-between;
@@ -18,21 +18,40 @@ body {
     margin-left: 20px;
     margin-top: 12px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     cursor: pointer;
     font-family: Consolas, monospace,
 }
 
+.logo-item{
+    margin-top: 10px;
+}
+
+.category{
+    margin-left: 70px;
+}
+
+.category a{
+    margin-right: 15px;
+    font-size: 18px;
+    font-weight: 100;
+    text-decoration: none;
+    color: black;
+}
+
 .logo h1 {
-    font-size: 27px;
+    font-size: 30px;
     display: flex;
+    justify-content: space-between;
     text-align: center;
     margin: 0;
 }
 
+
 h2 {
     color: rgb(174, 108, 33);
-    font-size: 29px;
+    font-size: 38px;
 
 }
 
@@ -52,8 +71,12 @@ h2 {
    
 }
 
+.order{
+    cursor: pointer;
+}
+
 .nav a {
-    color: #fff;
+    color: #000000;
     text-decoration: none;
     margin-right: 10px;
     cursor: pointer;
@@ -61,7 +84,7 @@ h2 {
 
 .button {
     background-color: #007BFF;
-    color: #fff;
+    color: #000000;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
@@ -72,7 +95,7 @@ h2 {
   }
 
   span{
-    color: white
+    color: rgb(10, 10, 10)
   }
 
 .button:hover {
