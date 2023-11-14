@@ -1,7 +1,7 @@
 
 <div class="form-container">
     <div class="login-form">
-      <h1>Login</h1>
+      <h1>{{"login" | translate}}</h1>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="control">
           <label for="email">Email</label>
@@ -16,7 +16,7 @@
           class="text-danger">Email is required</div>
         </div>
         <div class="control">
-          <label for="password">Password</label>
+          <label for="password">{{"password" | translate}}</label>
           <input
             type="password"
             name="password"
@@ -28,7 +28,7 @@
           class="text-danger">Password is required</div>
         </div>
         <div class="control">
-       <button class="submit" >Login</button>
+       <button class="submit">{{"login" | translate}}</button>
         </div>
       </form>
     </div>

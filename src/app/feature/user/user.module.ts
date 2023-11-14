@@ -9,7 +9,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { MatStepperModule } from '@angular/material/stepper';
 import { ProductComponent } from './components/product-component/product-component.component';
-import { CartComponent } from '../../user/components/cart-component/cart-component.component';
+import { CartComponent } from './components/cart-component/cart-component.component';
 import { FavoriteComponent } from './components/favorite-component/favorite-component.component';
 import { OrderFormComponent } from './components/order-form/order-form.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
@@ -20,6 +20,7 @@ import { NewCollectionComponent } from './components/new-collection/new-collecti
 import { ManCollectionComponent } from './components/man-collection/man-collection.component';
 import { WomanCollectionComponent } from './components/woman-collection/woman-collection.component';
 import { AllProductsComponent } from './components/all-products/all-products.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -38,9 +39,10 @@ import { AllProductsComponent } from './components/all-products/all-products.com
     ManCollectionComponent,
     WomanCollectionComponent,
     AllProductsComponent,
+    
 
   ],
 
-    imports: [ CommonModule, UserRoutingModule, StoreModule, SharedModule, MatStepperModule]
+    imports: [ CommonModule, UserRoutingModule, StoreModule, SharedModule, MatStepperModule, TranslateModule]
 })
 export class UserModule { }

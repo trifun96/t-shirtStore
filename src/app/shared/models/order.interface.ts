@@ -9,5 +9,5 @@ export class OrderInterface {
     city:string
     state:string
     zip:number
-    orders:ProductInterface[]
+    products:ProductInterface[]
 }

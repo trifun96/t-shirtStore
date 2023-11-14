@@ -6,15 +6,15 @@
         <h2>{{data.title}}</h2>
         <p>{{data.description}}</p>
         <h2>{{data.price}} RSD</h2>
-        <h3>Velicine</h3>
-        <p class="circle-icon" id="small">S</p>
-        <p class="circle-icon" id="medium">M</p>
-        <p class="circle-icon" id="large">L</p>
-        <p class="circle-icon" id="extra-large">XL</p>
-        <p class="circle-icon" id="extra-extra-large">XXL</p>
+        <h3>{{"size"| translate}}</h3>
+        <p class="circle-icon" id="small" (click)="toSelectedSize('S')">S</p>
+        <p class="circle-icon" id="medium" (click)="toSelectedSize('M')">M</p>
+        <p class="circle-icon" id="large" (click)="toSelectedSize('L')">L</p>
+        <p class="circle-icon" id="extra-large" (click)="toSelectedSize('XL')">XL</p>
+        <p class="circle-icon" id="extra-extra-large" (click)="toSelectedSize('XXL')">XXL</p>
         <div class="button-container">
-            <button class="custom-button" (click)="addToCartItem(data)">Add to cart</button>
-            <button class="custom-button" routerLink="/cart">Buy Now</button>
+            <button class="custom-button" (click)="addToCartItem(data)">{{"add-to-cart-button" | translate}}</button>
+            <button class="custom-button" (click)="buyNowProduct(data)">{{"buy-now" | translate}}</button>
             <span class="heart-icon" id="heart" title="Add to favorite" (click)="addToFavorite(data)">favorite_border</span>
           </div>
         <div class="delivery"><p>Delivery</p></div>

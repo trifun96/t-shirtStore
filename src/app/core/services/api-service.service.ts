@@ -46,4 +46,8 @@ export class ApiService {
   getOrders() {
     return this.http.get<any>('http://localhost:3000/orders');
   }
+
+  deleteOrder(id: number) {
+    return this.http.delete<any>('http://localhost:3000/orders/' + id);
+  }
 }

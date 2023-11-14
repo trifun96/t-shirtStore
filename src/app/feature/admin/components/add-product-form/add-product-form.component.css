@@ -10,7 +10,7 @@ h1{
   }
   
   .control{
-    margin: 10px;
+    margin: 7px;
   }
 
   .form-container {
@@ -23,7 +23,7 @@ h1{
     padding: 10px;
     display: block;
     color: rgb(12, 11, 11);
-    margin: 10px 0px;
+    margin: 8px 0px;
   }
   
   .submit-button{
@@ -35,7 +35,7 @@ h1{
     width: 100%;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 17px;
+    font-size: 15px;
   }
   
   .submit-button:active{
@@ -51,8 +51,8 @@ h1{
   }
 
   .preview-image {
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
   }
   
   .danger-title{

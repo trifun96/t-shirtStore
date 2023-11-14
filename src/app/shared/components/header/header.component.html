@@ -4,23 +4,24 @@
             <h1>T-Shirt<h2>Store</h2></h1>
         </div>
         <div class="category" *ngIf="!isLoggedIn">
-            <a routerLink="/man-collection" routerLinkActive="active">Muskarci</a>
-            <a routerLink="/woman-collection" routerLinkActive="active">Zene</a>
+            <a routerLink="/man-collection" routerLinkActive="active">{{"man-collection" | translate}}</a>
+            <a routerLink="/woman-collection" routerLinkActive="active">{{"woman-collection" | translate}}</a>
         </div>
     </div>
  
     <div class="nav" *ngIf="!isLoggedIn">
-        <a routerLink="/product-page" routerLinkActive="active">Product Page</a>
-        <a routerLink="/sign-up" routerLinkActive="active">Sign Up</a>
-        <a routerLink="/login" routerLinkActive="active">Login</a>
+        <a routerLink="/product-page" routerLinkActive="active">{{"product-page" | translate}}</a>
+        <a routerLink="/sign-up" routerLinkActive="active">{{"sign-up" | translate}}</a>
+        <a routerLink="/login" routerLinkActive="active">{{"login" | translate}}</a>
         <i class="material-icons" routerLink="/favorite-cart">favorite</i>
         <span class="badge-size">{{totalFavoriteItem$ | async}}</span>
         <span routerLink="/cart" class="material-icons" routerLinkActive="active">shopping_cart</span>
         <span class="badge-size">{{totalItem$ | async}}</span>
     </div>
     <div class="nav" *ngIf="isLoggedIn">
-        <div>
-            <p class="order" routerLink="/admin/orders">Orders</p>
+        <div style="display: flex;">
+            <p class="order" routerLink="/admin/products">Admin</p>
+            <p class="order" routerLink="/admin/orders">{{"orders" | translate}}</p>
         </div>
         <mat-icon>person_outline</mat-icon>
         <p *ngIf="isLoggedIn">{{this.currentUser?.user.email}}</p>
@@ -29,3 +30,12 @@
           </button>
     </div>
 </div>
+    <div class="localization">
+        <label for="">
+          <select #langSelect (change)="translate.use(langSelect.value)">
+            <option *ngFor="let lang of translate.getLangs()">
+              <p>{{ lang }}</p>
+            </option>
+          </select>
+        </label>
+      </div>

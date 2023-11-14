@@ -37,7 +37,7 @@ export class OrderFormComponent implements OnInit {
     city: new FormControl(this.orderModelObject.city),
     state: new FormControl(this.orderModelObject.state),
     zip: new FormControl(this.orderModelObject.zip),
-    orders: new FormControl(this.orderModelObject.orders),
+    products: new FormControl(this.orderModelObject.products),
   });
 
   onSubmit() {
@@ -48,7 +48,7 @@ export class OrderFormComponent implements OnInit {
     this.orderModelObject.city = this.orderForm.value.city;
     this.orderModelObject.state = this.orderForm.value.state;
     this.orderModelObject.zip = this.orderForm.value.zip;
-    this.orderModelObject.orders = this.cartItemList;
+    this.orderModelObject.products = this.cartItemList;
     const request:OrderInterface = this.orderModelObject;
     this.api.postOrders(request).subscribe(() => {
       this.toast.success('You have successfully ordered your product.');

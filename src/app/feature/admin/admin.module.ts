@@ -16,6 +16,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { OrderComponent } from './components/order-component/order-component.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { OrderComponent } from './components/order-component/order-component.com
     MatPaginatorModule,
     MatSortModule,
     MatCardModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    TranslateModule,
 
   ]
 })

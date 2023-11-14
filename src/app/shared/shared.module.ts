@@ -23,6 +23,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { ToastrModule } from 'ngx-toastr';
 import { EmptyCardComponent } from './components/empty-card/empty-card.component';
 import { ProductModalComponent } from './components/product-modal/product-modal.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [HeaderComponent, SharedModalComponent, SharedModalComponent, FooterComponent, SearchMessageComponent, SideNavComponent, ProductDetailComponent, EmptyCardComponent, ProductModalComponent],
@@ -36,6 +37,7 @@ import { ProductModalComponent } from './components/product-modal/product-modal.
     MatButtonModule,
     MatCardModule,
     MatPaginatorModule,
+    TranslateModule,
     NgxPaginationModule,
     MatSidenavModule,
     MatFormFieldModule,
@@ -43,7 +45,7 @@ import { ProductModalComponent } from './components/product-modal/product-modal.
     MatListModule,
     NgIf,
     ToastrModule.forRoot(),
-    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
   ],
    exports:[RouterModule, ReactiveFormsModule, MatListModule,ToastrModule, MatSidenavModule, MatFormFieldModule, MatToolbarModule, MatCardModule, NgIf, MatPaginatorModule, MatSidenavModule, NgxPaginationModule, NgxSpinnerModule, FormsModule, HttpClientModule, MatIconModule,SharedModalComponent,MatButtonModule,CommonModule, HeaderComponent, FooterComponent, SearchMessageComponent, SideNavComponent, ProductDetailComponent, EmptyCardComponent, ProductModalComponent]
 })

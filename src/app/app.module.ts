@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TranslateLoader, TranslateModule, TranslatePipe } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,6 +23,10 @@ import { ProductsEffect } from './feature/admin/store/effects';
 import { state } from './shared/store/store';
 import { AuthService } from './core/services/auth-service.service';
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -30,6 +37,7 @@ import { AuthService } from './core/services/auth-service.service';
     ReactiveFormsModule,
     AppRoutingModule,
     SharedModule,
+    HttpClientModule,
 
     MatIconModule,
     RouterModule.forRoot([]),
@@ -44,6 +52,13 @@ import { AuthService } from './core/services/auth-service.service';
       },
     }),
     EffectsModule.forRoot([AuthEffect, ProductsEffect]),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [ AuthService],
   bootstrap: [AppComponent],

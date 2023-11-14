@@ -1,0 +1,49 @@
+<div *ngIf="cartItems$ | async as cartItems">
+    <ng-container *ngIf="cartItems.length !== 0">
+        <header id="site-header">
+            <div class="container">
+                <h1>{{"shopping-cart" | translate}}</h1>
+            </div>
+        </header>
+        <div *ngFor="let cartItem of cartItems; let i = index">
+            <div class="container">
+              <div>
+                <section>
+                  <article class="product">
+                    <header>
+                      <a class="remove">
+                        <img [src]="cartItem.image" alt="">
+                        <h3 (click)="removeProduct(cartItem)">{{"remove-button" | translate}}</h3>
+                      </a>
+                    </header>
+                    <div class="content">
+                      <h1>{{cartItem.title}}</h1>
+                      {{cartItem.description}}
+                      <h1>{{"size" | translate}}: {{cartItem.size}}</h1>
+                    </div>
+          
+                    <footer class="content">
+                      <span class="qt-minus" (click)="decreaseQuantity(cartItem)">-</span>
+                      <span class="qt">{{cartItem.quantity}}</span>
+                      <span class="qt-plus" (click)="increaseQuantity(cartItem)">+</span>
+                      <h2 class="full-price">{{cartItem.price * cartItem.quantity}} RSD</h2>
+                    </footer>
+                  </article>
+                </section>
+              </div>
+            </div>
+          </div>
+          <footer id="site-footer">
+            <div class="container clearfix">
+                <div class="right">
+                    <h1 class="total">{{"total" | translate}}: <span>{{totalPrice}} </span>RSD</h1>
+                    <a class="btn" routerLink="/order-form">{{"checkout" | translate}}</a>
+                </div>
+            </div>
+        </footer>
+    </ng-container>
+    <ng-container *ngIf="cartItems.length === 0">
+        <app-empty-card></app-empty-card>
+    </ng-container>
+
+</div>

@@ -126,3 +126,21 @@ h2 {
   .material-icons{
     padding: 5px;
   }
+
+  .localization{
+    position: fixed;
+    right: 1%;
+    top: 10%;
+    z-index: 10000;
+  }
+  
+  
+  
+  .localization select{
+    font-size: 20px;
+    border-radius: 10px;
+    color: rgb(109, 104, 104);
+    width: 50px;
+    background-color: rgb(244, 236, 236);
+  
+  }

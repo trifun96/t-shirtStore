@@ -18,10 +18,10 @@
 <ng-container *ngIf="favoriteItems.length === 0">
     <div class="container">
         <div class="center">
-          <h5>Your favorite list is empty!</h5>
-          <h4>When you add favorite artice on list, this will be appear!</h4>
+          <h5>{{"favorite-title" | translate}}</h5>
+          <h4>{{"favorite-subtitle" | translate}}</h4>
           <button routerLink="/product-page" class="add-to-cart">
-              Return to shop
+             {{"favorite-button" | translate}}
           </button>
         </div>
       </div>
