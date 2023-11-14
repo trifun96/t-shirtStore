@@ -1,15 +1,19 @@
-<div class="search-container">
+<div class="search-container" #sideNav>
     <div class="form__group field">
         <input type="input" class="form__field" placeholder="Search" name="search" id='search' [ngModel]="search"
             (ngModelChange)="onSearch($event)" required />
     </div>
-        <button type="submit" class="submit-button" (click)="openFilter()">
-            <div class="filter-button">
-                <mat-icon>filter_list</mat-icon><p>{{"filters" | translate}}</p>
-            </div>
-        </button>
+    <button type="submit" class="submit-button" (click)="openFilter()">
+        <div class="filter-button">
+            <mat-icon>filter_list</mat-icon>
+            <p>{{"filters" | translate}}</p>
+        </div>
+    </button>
     <ng-container *ngIf="showSideNav">
-        <app-side-nav (clearFilters)="clearAllFilters()" (closeEvent)="onCloseSideBar()" (priceFilterChanged)="onChangeFilterPrice($event)"(subCategoryChange)="applyFilterByCategory($event)" (sizeFilterChange)="applyFilterBySize($event)"></app-side-nav>
+        <app-side-nav appClickOutside (clickOutside)="handleClickOutside()" (clearFilters)="clearAllFilters()"
+            (closeEvent)="onCloseSideBar()" (priceFilterChanged)="onChangeFilterPrice($event)"
+            (subCategoryChange)="applyFilterByCategory($event)"
+            (sizeFilterChange)="applyFilterBySize($event)"></app-side-nav>
     </ng-container>
 </div>
 <div class="product-container">
@@ -36,6 +40,7 @@
 
 <div *ngIf="showProductDetail">
     <app-shared-modal (closeEvent)="closeSharedModal()">
-        <app-product-detail [data]="selectedProduct" (closeProductModal)="closeSharedModal($event)"></app-product-detail>
+        <app-product-detail [data]="selectedProduct"
+            (closeProductModal)="closeSharedModal($event)"></app-product-detail>
     </app-shared-modal>
 </div>

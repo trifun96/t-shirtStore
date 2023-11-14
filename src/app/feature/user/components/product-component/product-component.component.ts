@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -11,17 +11,18 @@ import { ProductInterface } from 'src/app/shared/models/productInterface.interda
   styleUrls: ['./product-component.component.css'],
 })
 export class ProductComponent {
+  @ViewChild('sideNav') sideNav: ElementRef;
   @Input() public products: ProductInterface[];
   public filterProducts: ProductInterface[];
   public originalProducts: ProductInterface[];
   public selectedCategories: string[] = [];
   public selectedSize: string[] = [];
   public selectedPrice: number | null = null;
-  public selectedProduct:ProductInterface = null
+  public selectedProduct: ProductInterface = null;
   public search: string;
   page: number = 1;
   public showSideNav: boolean = false;
-  public showProductDetail:boolean = false
+  public showProductDetail: boolean = false;
   constructor(private store: Store, private spinner: NgxSpinnerService) {}
 
   ngOnInit(): void {
@@ -37,7 +38,6 @@ export class ProductComponent {
           this.spinner.show();
         }
       });
-      
   }
 
   onSearch(newValue: string) {
@@ -54,13 +54,13 @@ export class ProductComponent {
   onChangeFilterPrice(event: any) {
     this.products = this.filterProducts.filter((value) => value.price >= event);
     this.selectedPrice = event;
-    this.applyFilters()
+    this.applyFilters();
   }
 
   applyFilterByCategory(eventData: { checked: boolean; subCategory: string }) {
     const checked = eventData.checked;
     const subCategory = eventData.subCategory;
-  
+
     if (checked) {
       this.selectedCategories.push(subCategory);
     } else {
@@ -69,14 +69,14 @@ export class ProductComponent {
         this.selectedCategories.splice(index, 1);
       }
     }
-  
+
     this.applyFilters();
   }
-  
+
   applyFilterBySize(eventData: { checked: boolean; size: string }) {
     const checked = eventData.checked;
     const size = eventData.size;
-  
+
     if (checked) {
       this.selectedSize.push(size);
     } else {
@@ -85,43 +85,59 @@ export class ProductComponent {
         this.selectedSize.splice(index, 1);
       }
     }
-  
+
     this.applyFilters();
   }
-  
+
   applyFilters() {
     const selectedCategories = this.selectedCategories;
     const selectedSize = this.selectedSize;
     const priceFilter = this.selectedPrice;
-  
-    if (selectedCategories.length === 0 && selectedSize.length === 0 && !priceFilter) {
+
+    if (
+      selectedCategories.length === 0 &&
+      selectedSize.length === 0 &&
+      !priceFilter
+    ) {
       this.products = this.originalProducts;
     } else {
-      this.products = this.filterProducts.filter((element) =>
-        (selectedCategories.length === 0 || selectedCategories.includes(element.subCategory)) &&
-        (selectedSize.length === 0 || selectedSize.includes(element.size)) &&
-        (!priceFilter || element.price >= priceFilter) 
+      this.products = this.filterProducts.filter(
+        (element) =>
+          (selectedCategories.length === 0 ||
+            selectedCategories.includes(element.subCategory)) &&
+          (selectedSize.length === 0 || selectedSize.includes(element.size)) &&
+          (!priceFilter || element.price >= priceFilter)
       );
     }
   }
 
-  clearAllFilters(){
+  clearAllFilters() {
     this.selectedCategories = [];
     this.selectedSize = [];
     this.selectedPrice = null;
-    this.products = this.originalProducts; 
+    this.products = this.originalProducts;
   }
 
   onCloseSideBar() {
     this.showSideNav = false;
   }
 
-  openProductDetailModal(product:ProductInterface) {
-    this.showProductDetail = true
+  openProductDetailModal(product: ProductInterface) {
+    this.showProductDetail = true;
     this.selectedProduct = product;
   }
 
   closeSharedModal() {
-    this.showProductDetail = false
+    this.showProductDetail = false;
+  }
+
+  handleClickOutside() {
+    if (this.showSideNav) {
+      const clickedInside = this.sideNav.nativeElement.contains(event.target);
+      if (!clickedInside) {
+        this.showProductDetail = false;
+        this.showSideNav = false;
+      }
+    }
   }
 }

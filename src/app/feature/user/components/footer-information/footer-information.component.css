@@ -9,7 +9,7 @@
   }
   
   .info {
-    max-width: 1300px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
@@ -47,7 +47,7 @@
   }
   
   .content p {
-    font-size: 20px;
+    font-size: px;
     margin-top: 5px;
     font-weight: 350;
   

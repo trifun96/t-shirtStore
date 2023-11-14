@@ -21,6 +21,7 @@ import { ManCollectionComponent } from './components/man-collection/man-collecti
 import { WomanCollectionComponent } from './components/woman-collection/woman-collection.component';
 import { AllProductsComponent } from './components/all-products/all-products.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { ClickOutsideDirective } from 'src/app/shared/directives/clickOutside.directive';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ManCollectionComponent,
     WomanCollectionComponent,
     AllProductsComponent,
+    ClickOutsideDirective
     
 
   ],
