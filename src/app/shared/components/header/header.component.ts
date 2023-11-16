@@ -44,6 +44,10 @@ export class HeaderComponent implements OnInit {
     this.totalFavoriteItem$ = this.favoriteService.totalFavoriteItem$;
   }
 
+  isAdmin(): boolean {
+    return this.authService.getRole() === 'admin';
+  }
+
   logout() {
     this.authService.logout();
     this.currentUser = null;

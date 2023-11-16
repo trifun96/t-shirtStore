@@ -56,5 +56,13 @@
     "sub-category":"Sub-category",
     "quantity":"Quantity",
     "price":"Price",
-    "action":"Action"
+    "action":"Action",
+    "billing-address":"Billing Address",
+    "full-name":"Full Name",
+    "address":"Address",
+    "mobilePhone":"Mobile phone",
+    "city":"City",
+    "state":"State",
+    "zip":"Zip"
+
   }

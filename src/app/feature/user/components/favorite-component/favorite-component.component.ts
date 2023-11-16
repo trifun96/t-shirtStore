@@ -21,7 +21,7 @@ export class FavoriteComponent implements OnInit{
     this.favoriteService.removeFavoriteItem(favoriteItem)
   }
 
-  openProductDetail(favoriteItems:ProductInterface){
+  openProductDetailModal(favoriteItems:ProductInterface){
     this.selectedProduct = favoriteItems;
     this.isOpenProductDetailModal = true;
   }

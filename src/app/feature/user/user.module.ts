@@ -22,6 +22,8 @@ import { WomanCollectionComponent } from './components/woman-collection/woman-co
 import { AllProductsComponent } from './components/all-products/all-products.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { ClickOutsideDirective } from 'src/app/shared/directives/clickOutside.directive';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -40,11 +42,10 @@ import { ClickOutsideDirective } from 'src/app/shared/directives/clickOutside.di
     ManCollectionComponent,
     WomanCollectionComponent,
     AllProductsComponent,
-    ClickOutsideDirective
-    
+    ClickOutsideDirective,
 
   ],
 
-    imports: [ CommonModule, UserRoutingModule, StoreModule, SharedModule, MatStepperModule, TranslateModule]
+    imports: [ CommonModule, UserRoutingModule, StoreModule, SharedModule, MatStepperModule, TranslateModule, MatIconModule, MatButtonModule]
 })
 export class UserModule { }

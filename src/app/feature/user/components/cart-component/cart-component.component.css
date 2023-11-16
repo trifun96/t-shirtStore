@@ -5,6 +5,11 @@ body {
     overflow-x: hidden;
   }
   
+  .cart-container {
+    width: 100%;
+    height: 85vh;
+    margin-top: 70px;
+  }
   .clearfix {
     content: "";
     display: table;

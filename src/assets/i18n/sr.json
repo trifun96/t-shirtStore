@@ -56,5 +56,12 @@
   "sub-category":"Pod-kategorija",
   "quantity":"Kolicina",
   "price":"Cena",
-  "action":"Akcije"
+  "action":"Akcije",
+  "billing-address":"Adresa za naplatu",
+  "full-name":"Ime i prezime",
+  "address":"Adresa",
+  "mobilePhone":"Broj telefona",
+  "city":"Grad",
+  "state":"Ulica",
+  "zip":"Zip"
 }

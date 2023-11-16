@@ -1,15 +1,20 @@
 <div class="header">
     <div class="logo">
         <div class="logo-item">
-            <h1>T-Shirt<h2>Store</h2></h1>
+            <h1>T-Shirt<h2>Store</h2>
+            </h1>
         </div>
-        <div class="category" *ngIf="!isLoggedIn">
+        <div class="category" *ngIf="!isLoggedIn && !isAdmin()">
+            <a routerLink="/man-collection" routerLinkActive="active">{{"man-collection" | translate}}</a>
+            <a routerLink="/woman-collection" routerLinkActive="active">{{"woman-collection" | translate}}</a>
+        </div>
+        <div class="category" *ngIf="isLoggedIn && !isAdmin()">
             <a routerLink="/man-collection" routerLinkActive="active">{{"man-collection" | translate}}</a>
             <a routerLink="/woman-collection" routerLinkActive="active">{{"woman-collection" | translate}}</a>
         </div>
     </div>
- 
-    <div class="nav" *ngIf="!isLoggedIn">
+
+    <div class="nav" *ngIf="!isLoggedIn && !isAdmin()">
         <a routerLink="/product-page" routerLinkActive="active">{{"product-page" | translate}}</a>
         <a routerLink="/sign-up" routerLinkActive="active">{{"sign-up" | translate}}</a>
         <a routerLink="/login" routerLinkActive="active">{{"login" | translate}}</a>
@@ -18,24 +23,30 @@
         <span routerLink="/cart" class="material-icons" routerLinkActive="active">shopping_cart</span>
         <span class="badge-size">{{totalItem$ | async}}</span>
     </div>
-    <div class="nav" *ngIf="isLoggedIn">
+
+    <div class="nav" *ngIf="isLoggedIn && !isAdmin()">
+        <a routerLink="/product-page" routerLinkActive="active">{{"product-page" | translate}}</a>
+        <i class="material-icons" routerLink="/favorite-cart">favorite</i>
+        <span class="badge-size">{{totalFavoriteItem$ | async}}</span>
+        <span routerLink="/cart" class="material-icons" routerLinkActive="active">shopping_cart</span>
+        <span class="badge-size">{{totalItem$ | async}}</span>
+        <app-dropdown-component></app-dropdown-component>
+    </div>
+
+    <div class="nav" *ngIf="isLoggedIn && isAdmin()">
         <div style="display: flex;">
             <p class="order" routerLink="/admin/products">Admin</p>
             <p class="order" routerLink="/admin/orders">{{"orders" | translate}}</p>
         </div>
-        <mat-icon>person_outline</mat-icon>
-        <p *ngIf="isLoggedIn">{{this.currentUser?.user.email}}</p>
-        <button mat-icon-button (click)="logout()">
-            <mat-icon>exit_to_app</mat-icon>
-          </button>
+        <app-dropdown-component></app-dropdown-component>
     </div>
 </div>
-    <div class="localization">
-        <label for="">
-          <select #langSelect (change)="translate.use(langSelect.value)">
+<div class="localization">
+    <label for="">
+        <select #langSelect (change)="translate.use(langSelect.value)">
             <option *ngFor="let lang of translate.getLangs()">
-              <p>{{ lang }}</p>
+                <p>{{ lang }}</p>
             </option>
-          </select>
-        </label>
-      </div>
+        </select>
+    </label>
+</div>

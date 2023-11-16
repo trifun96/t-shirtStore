@@ -1,6 +1,8 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
+import { FavoriteService } from 'src/app/core/services/favorite-service.service';
 
 import { productAction } from 'src/app/feature/admin/store/actions';
 import { ProductInterface } from 'src/app/shared/models/productInterface.interdace';
@@ -23,7 +25,7 @@ export class ProductComponent {
   page: number = 1;
   public showSideNav: boolean = false;
   public showProductDetail: boolean = false;
-  constructor(private store: Store, private spinner: NgxSpinnerService) {}
+  constructor(private store: Store, private spinner: NgxSpinnerService, private favoriteService:FavoriteService, private toastr:ToastrService) {}
 
   ngOnInit(): void {
     this.store.dispatch(productAction.getProducts());
@@ -139,5 +141,10 @@ export class ProductComponent {
         this.showSideNav = false;
       }
     }
+  }
+
+  addToFavorite(favoriteData:ProductInterface) {
+    this.favoriteService.addFavoriteItem(favoriteData);
+    this.toastr.success('You are successfully added product to favorite list')
   }
 }

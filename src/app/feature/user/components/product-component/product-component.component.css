@@ -1,18 +1,16 @@
 .example-card {
-    max-width: 400px;
+    max-width: 450px;
     width: max-content;
     padding: 0;
     margin: 20px;
-    border-radius: 20px;
-    background-color: rgb(245, 238, 238);
+    background-color: rgb(255, 255, 255);
     max-width: min-content;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     cursor: pointer;
 }
 
 .product-container{
-    max-width: 1550px;
-    margin: 0 auto;
+    max-width: 2000px;
+    margin: 70px;
     gap:1rem;
     display: flex;
     flex-wrap: wrap;
@@ -21,8 +19,8 @@
 
 
 .search-container {
-    max-width: 1500px;
-    margin: 0 auto;
+    max-width: 2000px;
+    margin: 90px;
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
@@ -35,11 +33,39 @@
 
 }
 
+.heart-icon {
+    font-family: 'Material Icons';
+    font-size: 22px;
+    cursor: pointer;
+    color: rgba(255, 0, 0, 0.5); 
+  }
+
+  .heart-icon:hover{
+    background-color: red;
+    color:white;
+    border-radius: 50%;
+    padding: 1px 3px 1px 3px;
+    
+  }
+
+.card-title{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.price-container{
+    padding: 12px;
+    background-color: red;
+    color:white;
+    font-size: 15px;
+}
+
 .title {
     max-width: 1450px;
     margin: 0 auto;
     margin-top: 50px;
-    border-left: 7px solid red;
+
 }
 
 .title h1 {
@@ -102,7 +128,7 @@
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     padding: 2px;
-    margin: 0px 210px 0px 0px;
+    margin: 0px 100px 0px 0px;
     border: none;
     width: 10%;
     border-radius: 10px;
@@ -128,8 +154,7 @@ margin-top: 10px;
 
 mat-card-subtitle{
     text-align: center;
-    font-size: 16px;
-    padding: 15px;
+    font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 

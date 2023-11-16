@@ -24,22 +24,6 @@ export class ProductDetailComponent implements OnInit {
         size.classList.toggle('clicked');
       });
     });
-
-    const heart = document.getElementById('heart');
-
-    let isClicked = false;
-
-    heart.addEventListener('click', function () {
-      if (!isClicked) {
-        heart.textContent = 'favorite';
-        heart.classList.add('clicked');
-        isClicked = true;
-      } else {
-        heart.classList.remove('clicked');
-        heart.textContent = 'favorite_border';
-        isClicked = false;
-      }
-    });
   }
 
   toSelectedSize(size:string) {

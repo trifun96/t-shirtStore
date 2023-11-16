@@ -38,7 +38,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
-
     MatIconModule,
     RouterModule.forRoot([]),
     StoreModule.forRoot(state),

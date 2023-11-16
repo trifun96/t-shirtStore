@@ -1,7 +1,7 @@
 .product-container{
     max-width: 1550px;
     padding: 10px 10px 60px 40px;
-    gap:1rem;
+    gap:2rem;
     margin: 100px;
     display: flex;
     flex-wrap: wrap;
@@ -47,6 +47,19 @@
     width: 300px;
   }
 
+  
+.card-title{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.price-container{
+  padding: 12px;
+  background-color: red;
+  color:white;
+  font-size: 15px;
+}
   
   .add-to-cart{
     background-color: rgb(174, 108, 33);
