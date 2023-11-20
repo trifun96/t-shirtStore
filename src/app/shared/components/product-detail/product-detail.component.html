@@ -7,11 +7,11 @@
         <p>{{data.description}}</p>
         <h2>{{data.price}} RSD</h2>
         <h3>{{"size"| translate}}</h3>
-        <p class="circle-icon" id="small" (click)="toSelectedSize('S')">S</p>
-        <p class="circle-icon" id="medium" (click)="toSelectedSize('M')">M</p>
-        <p class="circle-icon" id="large" (click)="toSelectedSize('L')">L</p>
-        <p class="circle-icon" id="extra-large" (click)="toSelectedSize('XL')">XL</p>
-        <p class="circle-icon" id="extra-extra-large" (click)="toSelectedSize('XXL')">XXL</p>
+        <h5 class="circle-icon" id="small" (click)="toSelectedSize('S')">S</h5>
+        <h5 class="circle-icon" id="medium" (click)="toSelectedSize('M')">M</h5>
+        <h5 class="circle-icon" id="large" (click)="toSelectedSize('L')">L</h5>
+        <h5 class="circle-icon" id="extra-large" (click)="toSelectedSize('XL')">XL</h5>
+        <h5 class="circle-icon" id="extra-extra-large" (click)="toSelectedSize('XXL')">XXL</h5>
         <div class="button-container">
             <button class="custom-button" (click)="addToCartItem(data)">{{"add-to-cart-button" | translate}}</button>
             <button class="custom-button" (click)="buyNowProduct(data)">{{"buy-now" | translate}}</button>

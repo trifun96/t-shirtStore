@@ -11,7 +11,7 @@ const initialState: AuthStateInterface = {
     name: 'auth',
     reducer: createReducer(
       initialState,
-      on(authActions.register, (state) => ({
+      on(authActions.registerTest, (state) => ({
         ...state,
         validationErrors: null,
       })),
@@ -25,6 +25,9 @@ const initialState: AuthStateInterface = {
         ...state,
         validationErrors: action.errors,
   }}),
+
+  //Login reducer
+  
       on(authActions.login, (state) => ({
         ...state,
         validationErrors: null,
@@ -40,10 +43,5 @@ const initialState: AuthStateInterface = {
     ),
   })
   
-  export const {
-    name: authFeatureKey,
-    reducer: authReducer,
-    selectCurrentUser,
-    selectValidationErrors,
-  } = authFeature
+  export default authFeature;
   

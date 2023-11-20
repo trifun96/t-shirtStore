@@ -4,6 +4,21 @@
             <h1>T-Shirt<h2>Store</h2>
             </h1>
         </div>
+            <div class="navbar">
+                <div class="menu-toggle" (click)="toggleMenu()">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <p routerLink="/product-page" (click)="closeMenu()">Product Page</p>
+                    <p routerLink="/woman-collection" (click)="closeMenu()">Woman's Collection</p>
+                    <p routerLink="/man-collection" (click)="closeMenu()">Man's Collection</p>
+                    <p routerLink="/sign-up" (click)="closeMenu()">Sign Up</p>
+                    <p routerLink="/login" (click)="closeMenu()">Login</p>
+                 
+                </ul>
+            </div>
         <div class="category" *ngIf="!isLoggedIn && !isAdmin()">
             <a routerLink="/man-collection" routerLinkActive="active">{{"man-collection" | translate}}</a>
             <a routerLink="/woman-collection" routerLinkActive="active">{{"woman-collection" | translate}}</a>
@@ -15,22 +30,37 @@
     </div>
 
     <div class="nav" *ngIf="!isLoggedIn && !isAdmin()">
-        <a routerLink="/product-page" routerLinkActive="active">{{"product-page" | translate}}</a>
-        <a routerLink="/sign-up" routerLinkActive="active">{{"sign-up" | translate}}</a>
-        <a routerLink="/login" routerLinkActive="active">{{"login" | translate}}</a>
-        <i class="material-icons" routerLink="/favorite-cart">favorite</i>
-        <span class="badge-size">{{totalFavoriteItem$ | async}}</span>
-        <span routerLink="/cart" class="material-icons" routerLinkActive="active">shopping_cart</span>
-        <span class="badge-size">{{totalItem$ | async}}</span>
+        <div class="items">
+            <a routerLink="/product-page" routerLinkActive="active">{{"product-page" | translate}}</a>
+            <a routerLink="/sign-up" routerLinkActive="active">{{"sign-up" | translate}}</a>
+            <a routerLink="/login" routerLinkActive="active">{{"login" | translate}}</a>
+        </div>
+        <div class="menuTab">
+            <i class="material-icons" routerLink="/favorite-cart">favorite</i>
+            <span class="badge-size">{{totalFavoriteItem$ | async}}</span>
+            <span routerLink="/cart" class="material-icons" routerLinkActive="active">shopping_cart</span>
+            <span class="badge-size">{{totalItem$ | async}}</span>
+        </div>
     </div>
 
     <div class="nav" *ngIf="isLoggedIn && !isAdmin()">
-        <a routerLink="/product-page" routerLinkActive="active">{{"product-page" | translate}}</a>
+        <a class="product-page" routerLink="/product-page" routerLinkActive="active">{{"product-page" | translate}}</a>
         <i class="material-icons" routerLink="/favorite-cart">favorite</i>
         <span class="badge-size">{{totalFavoriteItem$ | async}}</span>
         <span routerLink="/cart" class="material-icons" routerLinkActive="active">shopping_cart</span>
         <span class="badge-size">{{totalItem$ | async}}</span>
-        <app-dropdown-component></app-dropdown-component>
+        <div class="client">
+            <app-dropdown-component></app-dropdown-component>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-icon" (click)="toggleDropdown()">
+                <mat-icon>person_outline</mat-icon>
+            </div>
+            <div class="dropdown-content" id="dropdownContent">
+                <a>{{currentUser?.user.email}}</a>
+                <a (click)="logout()">Logout</a>
+            </div>
+        </div>
     </div>
 
     <div class="nav" *ngIf="isLoggedIn && isAdmin()">

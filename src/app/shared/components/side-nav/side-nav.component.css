@@ -129,3 +129,80 @@ mat-nav-list .title {
   display: flex;
   justify-content: space-between;
 }
+
+@media only screen and (max-width: 767px) {
+  .content {
+    height: 190vh;
+    width: 589px;
+    border-radius: 0;
+    box-shadow: none; 
+  }
+
+  .filter-price{
+    margin-top: 50px; 
+    font-size: 45px;
+  }
+
+  .custom-range {
+    height: 8px;
+    margin-top: 40px;
+  }
+
+  .submit-button {
+    bottom: 20px;
+    width: 80%;
+    font-size: 40px; 
+  }
+
+  .filter-button {
+    text-align: center; 
+  }
+
+  .checkbox-container {
+    font-size: 35px;
+    padding:10px;
+  }
+
+  .custom-checkbox{
+    margin-top: 50px;
+  }
+
+
+  .custom-checkbox[_ngcontent-ng-c2818069973] label[_ngcontent-ng-c2818069973]::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgb(174, 108, 33);
+    background-color: #fff;
+}
+
+.custom-checkbox[_ngcontent-ng-c2818069973] label[_ngcontent-ng-c2818069973] {
+  position: relative;
+  cursor: pointer;
+  padding-left: 57px;
+}
+
+    .title p{
+      font-size: 45px;
+      padding: 37px;
+    }
+
+    .col-price p {
+      font-size: 45px;
+      margin-top: 24px;
+    }
+
+    .sort{
+      font-size: 40px;
+      margin-top: 60px;
+      padding: 0px 0px 50px 0px;
+    }
+
+    .size{
+      font-size: 45px;
+      padding: 40px 0px 50px 0px;
+    }
+}

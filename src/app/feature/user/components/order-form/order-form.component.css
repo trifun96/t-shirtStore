@@ -90,11 +90,28 @@ body {
     color: grey;
   }
   
-  @media (max-width: 800px) {
-    .row {
-      flex-direction: column-reverse;
-    }
-    .col-25 {
-      margin-bottom: 20px;
-    }
-  }
+
+  @media only screen and (max-width: 450px) {
+.container{
+  width: 1087px;
+  margin-top: 200px;
+}
+
+.col-25 h3{
+  font-size: 50px;
+  padding: 30px;
+}
+
+.col-25 label{
+font-size:35px;
+padding: 20px;
+}
+
+.col-25 input{
+  font-size: 30px;
+}
+
+.btn{
+  font-size: 35px;
+}
+}

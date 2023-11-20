@@ -17,9 +17,9 @@ export class AuthEffect {
 
   registerEffect$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(authActions.register),
+      ofType(authActions.registerTest),
       mergeMap(({ request }) => {
-        if (!request.email) {
+        if (!(request.email && request.password)) {
           return of(
             authActions.registerFailure({
               errors: {
@@ -51,6 +51,8 @@ export class AuthEffect {
     { dispatch: false }
   );
 
+
+  //login effect
   loginEffects$ = createEffect(() =>
     this.actions$.pipe(
       ofType(authActions.login),

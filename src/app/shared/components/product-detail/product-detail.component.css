@@ -103,3 +103,172 @@ h3 {
   .delivery p {
     font-size: 15px;
   }
+
+  @media only screen and (max-width: 600px) {
+    body {
+        height: auto;
+    }
+
+    .product-container {
+        flex-direction: column; 
+    }
+
+    .product-info {
+        padding: 10px; 
+    }
+
+    .product-info h2 {
+        font-size: 30px; 
+    }
+
+    .product-info p {
+        font-size: 25px; 
+    }
+
+    .circle-icon {
+        font-family: 'Material Icons';
+        font-size: 50px;
+        margin: 5px;
+        display: inline-block;
+        border: 2px solid #333;
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        text-align: center;
+        line-height: 45px;
+        cursor: pointer;
+    }
+    
+    h3{
+        font-size: 23px;
+    }
+
+    .button-container {
+        display: flex;
+        padding: 10px;
+        margin-top: 100px;
+    }
+    
+    .custom-button {
+        padding: 10px 20px;
+        margin: 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 25px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .button-container {
+        flex-direction: column; 
+        margin-top: 20px; 
+    }
+
+    .custom-button {
+        width: 100%; 
+    }
+
+    .heart-icon {
+        margin-top: 10px; 
+        text-align: center;
+    }
+
+    .delivery {
+        margin-top: 20px;
+    }
+  
+    .delivery p {
+        font-size: 14px; 
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    body {
+        height: auto;
+    }
+
+    .product-container {
+        flex-direction: column; 
+        height: 301vh;
+    }
+
+    .product-info {
+        padding: 70px; 
+    }
+
+    .product-info h2 {
+        font-size: 50px; 
+    }
+
+    .product-info p {
+        font-size: 35px; 
+        line-height: normal;
+        padding: 20px 0px 20px 0px;
+    }
+
+    .product-info h5{
+        font-size: 38px;
+    }
+
+    .circle-icon {
+        font-family: 'Material Icons';
+        font-size: 40px;
+        margin: 5px;
+        display: inline-block;
+        border: 2px solid #333;
+        border-radius: 50%;
+        width: 83px;
+        height: 83px;
+        text-align: center;
+        line-height: 67px;
+        cursor: pointer;
+    }
+    
+    h3{
+        font-size: 40px;
+        padding: 20px 0px 20px 0px;
+    }
+
+    .button-container {
+        display: flex;
+        padding: 10px;
+        margin-top: 100px;
+    }
+    
+    .custom-button {
+        padding: 10px 20px;
+        margin: 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 35px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .button-container {
+        flex-direction: column; 
+        margin-top: 20px; 
+        padding: 80px;
+    }
+
+    .custom-button {
+        width: 100%; 
+    }
+
+    .heart-icon {
+        margin-top: 10px; 
+        text-align: center;
+        font-size: 60px;
+        padding: 15px;
+    }
+
+    .delivery {
+        display: none;
+    }
+  
+   
+}

@@ -118,3 +118,76 @@
   color: white;
   margin-bottom: 10px;
 }
+
+@media only screen and (max-width: 450px) {
+  .form-container{
+    position: absolute;
+    height: 277vh;
+    width: 277%;
+    background-color: rgb(221, 234, 234);
+  }
+  .login-form{
+    position: absolute;
+    top: 46%;
+    left: 53%;
+    width: 664px;
+    height: 850px;
+  }
+
+  h1{
+    font-size: 59px;
+    padding: 20px;
+  }
+  
+  label{
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+  }
+
+  .control input{
+    width: 100%;
+    padding: 15px;
+    display: block;
+    color: #222;
+    border: none;
+    outline: none;
+    margin: 20px 0;
+    border-radius: 10px;
+    font-size: 28px;
+  }
+
+  h3{
+    color: rgb(236, 232, 227);
+    padding: 50px;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: 100;
+    cursor: pointer;
+    font-size: 40px;
+  }
+
+  .control .submit{
+    background-color: rgb(174, 108, 33);
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 34px;
+  }
+
+  .link{
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+    font-size: 20px;
+    }
+
+    .link a {
+      font-size: 35px;
+      padding: 10px;
+    }
+}

@@ -1,8 +1,8 @@
 .container{
     max-width: 1400px;
     margin: 0 auto;
-    height: 50vh;
-    margin-top: 50px;
+    height: 70vh;
+    background-color: white;
   
   }
   
@@ -31,7 +31,7 @@
   }
   
   .center img{
-    width: 300px;
+    width: 290px;
   }
 
   
@@ -49,3 +49,109 @@
     margin-top: 30px;
   }
   
+
+  @media only screen and (max-width: 600px) {
+
+    .container{
+      width: 1220px;
+      position: relative;
+      height: 70vh;
+      background-color: white;
+    }
+    .center{
+      position: absolute;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .center img{
+      width: 150px;
+    }
+
+    .center h5{
+      font-size: 30px;
+    }
+
+    .center h4{
+      font-size: 22px;
+    }
+
+    .add-to-cart{
+      font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .container{
+    width: 1220px;
+    position: relative;
+    height: 115vh;
+    background-color: white;
+  }
+  .center{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .center img{
+    width: 150px;
+  }
+
+  .center h5{
+    font-size: 50px;
+    font-weight: 400;
+    padding: 20px;
+    line-height: normal;
+  }
+
+  .center h4{
+    font-size:36px;
+    line-height: normal;
+  }
+
+  .add-to-cart{
+    font-size: 40px;
+    font-weight: 200;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+
+  .container{
+    width: 985px;
+    position: relative;
+    height: 118vh;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .center{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .center img{
+    width: 150px;
+  }
+
+  .center h5{
+    font-size: 50px;
+    font-weight: 400;
+    padding: 20px;
+    line-height: normal;
+  }
+
+  .center h4{
+    font-size:36px;
+    line-height: normal;
+    padding: 30px;
+  }
+
+  .add-to-cart{
+    font-size: 40px;
+    font-weight: 200;
+  }
+}

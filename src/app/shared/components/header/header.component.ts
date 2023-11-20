@@ -16,6 +16,8 @@ export class HeaderComponent implements OnInit {
   currentUser: User | null;
   totalItem$: Observable<number> = new Observable<number>();
   totalFavoriteItem$: Observable<number> = new Observable<number>();
+  public isClicked:boolean;
+  public mobileMenu:boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -44,9 +46,29 @@ export class HeaderComponent implements OnInit {
     this.totalFavoriteItem$ = this.favoriteService.totalFavoriteItem$;
   }
 
+
   isAdmin(): boolean {
     return this.authService.getRole() === 'admin';
   }
+
+  toggleMenu() {
+    var navMenu = document.getElementById("navMenu");
+    navMenu.style.display = (navMenu.style.display === "block") ? "none" : "block";
+}
+
+  closeMenu() {
+    const navMenu = document.getElementById("navMenu");
+    navMenu.style.display = "none"
+  }
+
+closeManu(){
+  this.isClicked = true;
+}
+
+toggleDropdown() {
+  var dropdownContent = document.getElementById("dropdownContent");
+  dropdownContent.classList.toggle("show");
+}
 
   logout() {
     this.authService.logout();

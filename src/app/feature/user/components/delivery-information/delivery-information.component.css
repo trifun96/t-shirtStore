@@ -1,7 +1,7 @@
 .wrapper {
     width: 100%;
     height: 25%;
-    background-color: rgb(252, 252, 252);
+    background-color: rgb(252, 243, 243);
     justify-content: center;
     align-items: center;
     letter-spacing: 2px;
@@ -39,4 +39,84 @@ h1 {
     color: rgb(90, 71, 71);
     line-height: 30px;
    
+}
+
+@media only screen and (max-width: 600px) {
+    .wrapper {
+        height: auto; 
+        width: 100%;
+        padding: 0;
+    }
+
+    .info {
+        width: 811px;
+        height: auto;
+        margin-left: 100px;
+    }
+
+    .flex {
+        width: 100%; 
+    }
+
+    .flex span {
+        margin-right: 0; 
+        margin-bottom: 5px; 
+        text-align: center; 
+    }
+
+    .flex span .mat-icon {
+        margin-right: 5px; 
+        padding: 10px;
+        font-size: 33px;
+    }
+
+    h1 {
+        font-size: 30px; 
+        line-height: 1.5; 
+        text-align: center; 
+        margin-top: 8px;
+    }
+
+  
+}
+
+@media only screen and (max-width: 450px) {
+    .wrapper {
+        height: auto; 
+        width: 100%;
+        padding: 0;
+    }
+
+    .info {
+        width: 980px;
+        height: auto;
+        margin: 0;
+    }
+
+    .flex {
+        width: 100%; 
+    }
+
+    .flex span {
+        margin-right: 0; 
+        margin-bottom: 5px; 
+        text-align: center; 
+    }
+
+    .flex span .mat-icon {
+        margin-right: 5px; 
+        font-size: 41px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 40px; 
+        line-height: 1.5; 
+        text-align: center; 
+        font-weight: 400;
+        margin-top: 15px;
+        margin-left: 8px;
+    }
+
+  
 }

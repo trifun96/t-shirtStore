@@ -7,7 +7,7 @@ import { UserRegistration } from 'src/app/shared/models/userRegistration.interfa
 export const authActions = createActionGroup({
   source: 'auth',
   events: {
-    'Register': props<{ request: UserRegistration }>(),
+    'Register test': props<{ request: UserRegistration }>(),
     'Register success': props<{ currentUser: CurrentUserInterface }>(),
     'Register failure': props<{ errors: ErrorInterface }>(),
 

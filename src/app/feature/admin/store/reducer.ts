@@ -41,9 +41,4 @@ const productActionFeature = createFeature({
   ),
 });
 
-export const {
-  name: productActiveKey,
-  reducer: productReducer,
-  selectCurrentArticle,
-  selectValidationError,
-} = productActionFeature;
+export default productActionFeature;

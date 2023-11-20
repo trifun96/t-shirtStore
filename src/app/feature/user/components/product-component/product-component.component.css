@@ -8,10 +8,10 @@
     cursor: pointer;
 }
 
-.product-container{
+.product-container {
     max-width: 2000px;
     margin: 70px;
-    gap:1rem;
+    gap: 1rem;
     display: flex;
     flex-wrap: wrap;
     margin-top: 40px;
@@ -35,29 +35,22 @@
 
 .heart-icon {
     font-family: 'Material Icons';
-    font-size: 22px;
+    font-size: 27px;
     cursor: pointer;
-    color: rgba(255, 0, 0, 0.5); 
-  }
+    color: rgba(255, 0, 0, 0.5);
+    margin-top: 20px;
+}
 
-  .heart-icon:hover{
-    background-color: red;
-    color:white;
-    border-radius: 50%;
-    padding: 1px 3px 1px 3px;
-    
-  }
-
-.card-title{
+.card-title {
     display: flex;
     justify-content: space-between;
     padding: 20px;
 }
 
-.price-container{
+.price-container {
     padding: 12px;
     background-color: red;
-    color:white;
+    color: white;
     font-size: 15px;
 }
 
@@ -120,9 +113,9 @@
     color: #555;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     margin-top: 10px;
-  }
+}
 
-  .submit-button{
+.submit-button {
     position: absolute;
     right: 0;
     background-color: rgb(255, 255, 255);
@@ -137,28 +130,33 @@
     border-color: rgb(127, 123, 123);
     border: 2px solid rgb(152, 144, 144);
 
-  }
+}
 
-.filter-button{
-display: flex;
-margin: 0;
-justify-content: space-evenly;
-text-align: center;
-margin-top: 10px;
-  }
+.filter-button {
+    display: flex;
+    margin: 0;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-top: 10px;
+}
 
-  p{
+p {
     font-size: 20px;
     text-align: center;
-  }
+}
 
-mat-card-subtitle{
+.container img {
+    width: 385px;
+}
+
+mat-card-subtitle {
     text-align: center;
     font-size: 20px;
+    padding: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-mat-card-content{
+mat-card-content {
     text-align: center;
     padding: 10px;
 }
@@ -168,5 +166,132 @@ mat-card-content p {
     font-size: 16px;
 }
 
+@media only screen and (max-width: 600px) {
+    .product-container {
+        margin: 0 auto;
+        width: 1050px;
+        margin-left: 50px;
+        padding: 0px 50px 50px 50px;
+    }
+
+    .paginator {
+        margin: 0 auto;
+        text-align: center;
+        margin-left: 270px;
+    }
+
+    .search-container {
+        width: 900px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .submit-button {
+        position: absolute;
+        right: -577px;
+        width: 160px;
+    }
+
+    .heart-icon {
+        display: none;
+    }
+
+    .container img {
+        width: 451px;
+    }
+
+    .filter-button p {
+        font-size: 35px;
+    }
+
+    mat-icon {
+        font-size: 31px;
+    }
+
+    mat-card-subtitle {
+        font-size: 31px;
+    }
+
+}
+
+.price-container {
+    padding: 12px;
+    background-color: red;
+    color: white;
+    font-size: 25px;
+}
+
+.form__field {
+    font-size: 30px;
+    margin-left: 30px;
+}
 
 
+@media only screen and (max-width: 450px) {
+    .product-container {
+        margin: 0 auto;
+        width: 1124px;
+        padding: 0px 50px 50px 50px;
+    }
+
+    .paginator {
+        margin: 0 auto;
+        text-align: center;
+        margin-left: 330px;
+        font-size: 40px;
+    }
+
+
+    .search-container {
+        width: 900px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .submit-button {
+        position: absolute;
+        left: 991px;
+        width: 160px;
+    }
+
+    .container img {
+        width: 514px;
+    }
+
+    .filter-button p {
+        font-size: 35px;
+    }
+
+    .heart-icon {
+        display: none;
+    }
+
+    mat-icon {
+        font-size: 30px;
+    }
+
+    mat-card-subtitle {
+        text-align: center;
+        font-size: 50px;
+        line-height: normal;
+        margin: 0;
+        padding: 0px 0px 20px 0px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .price-container {
+        padding: 20px;
+        background-color: red;
+        color: white;
+        font-size: 30px;
+    }
+
+    .form__field {
+        font-size: 30px;
+        margin: -18px;
+    }
+
+    .form__group input{
+        font-size: 40px;
+    }
+}
