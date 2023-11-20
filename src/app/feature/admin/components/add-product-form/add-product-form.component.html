@@ -1,0 +1,65 @@
+<form [formGroup]="productForm">
+  <h1>{{isEdit ?  ("edit-product" | translate) : ("add-product" | translate)}}<h1>
+<div class="form-container">
+  <div class="control">
+    <div>
+      <input type="file" name="image" id="upload-file" (change)="onSelectFile($event)" id="image"
+        placeholder="Photo" formControlName="image" />
+      <img id="upload-file" [src]="!previewImage ? url : previewImage" class="preview-image" alt="Preview Image"
+        title="Preview Image" />
+    </div>
+  </div>
+  <div class="control">
+    <label for="title">{{"title" | translate}}</label>
+    <input type="text" name="title" class="input" id="title" placeholder="Title" formControlName="title" />
+  </div>
+  <div class="control">
+    <label for="description">{{"description" | translate}}</label>
+    <input type="text" name="description" class="input" id="description" placeholder="Description"
+      formControlName="description" />
+  </div>
+
+  <div class="custom-select" style="width:400px; margin-left: 10px;">
+    <label for="description">{{"category" | translate}}</label>
+    <select formControlName="category">
+      <option><p>Muskarci</p></option>
+      <option><p>Zene</p></option>
+    </select>
+  </div>
+
+  <div class="custom-select" style="width:400px; margin-left: 10px;">
+    <label for="description">{{"sub-category" | translate}}</label>
+    <select formControlName="subCategory">
+      <option><p>Novo</p></option>
+      <option><p>Staro</p></option>
+      <option><p>Outlet</p></option>
+    </select>
+  </div>
+
+  <div class="custom-select" style="width:400px; margin-left: 10px;">
+    <label for="description">{{"size" | translate}}</label>
+    <select formControlName="size">
+      <option><p>S</p></option>
+      <option><p>M</p></option>
+      <option><p>L</p></option>
+      <option><p>XL</p></option>
+      <option><p>XXL</p></option>
+    </select>
+  </div>
+  <div class="control">
+    <label for="quantity">{{"quantity" | translate}}</label>
+    <input type="number" id="quantity" class="input" name="quantity" min="1" max="10000"
+      formControlName="quantity" />
+  </div>
+  <div class="control">
+    <label for="price">Price</label>
+    <input type="number" id="price" name="price" class="input" min="1" max="10000" formControlName="price" />
+  </div>
+
+  <div class="control">
+    <button type="submit" class="submit-button" (click)="postProductsData()">
+      <div>{{isEdit ? ("edit-product" | translate) : ("add-product" | translate)}}</div>
+    </button>
+  </div>
+</div>
+    

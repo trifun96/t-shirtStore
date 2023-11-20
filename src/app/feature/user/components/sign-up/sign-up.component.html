@@ -1,0 +1,35 @@
+<div class="form-container">
+  <div class="login-form">
+    <h1>{{"sign-up" | translate}}</h1>
+    <h3 routerLink="/login">{{"sign-up-title" | translate}}</h3>
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+      <div class="control">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Email" formControlName="email" />
+        <ng-container *ngIf="data$ | async as data">
+          <div class="text-danger">
+            {{data.email}}</div>
+        </ng-container>
+      </div>
+      <div class="control">
+        <label for="email">Username</label>
+        <input type="username" name="username" id="username" placeholder="Username" formControlName="username" />
+      </div>
+      <div class="control">
+        <label for="password">{{"password" | translate}}</label>
+        <input type="password" name="password" id="password" placeholder="Password" formControlName="password" />
+      </div>
+      <ng-container *ngIf="data$ | async as data">
+        <div class="text-danger">
+         {{data.password}}</div>
+      </ng-container>
+      <div class="control">
+        <button class="submit">{{"sign-up" | translate}}</button>
+      </div>
+
+      <div class="link">
+        <a routerLink="/product-page">{{"go-to-home" | translate}}</a>
+      </div>
+    </form>
+  </div>
+</div>

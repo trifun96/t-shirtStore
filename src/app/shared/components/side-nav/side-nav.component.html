@@ -1,0 +1,66 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <mat-nav-list>
+                <a class="title" mat-list-item><p>Filtriraj</p></a>
+                <hr>
+                <a class="col-price" mat-list-item><p>Cena</p></a>
+                <div class="filter-price">
+                    <p>0$</p>
+                    <input class="custom-range" type="range" id="range" name="range" min="800" max="3000"
+                        [ngModel]="range" (ngModelChange)="onFilter($event)" />
+                    <p>{{range}}</p>
+                </div>
+                <div class="checkbox-container">
+                    <div>
+                        <p class="sort">Sortiranje</p>
+                    </div>
+                    <div class="custom-checkbox">
+                        <input type="checkbox" id="customCheckbox" (change)="onCheckboxChange($event, 'Novo')" />
+                        <label for="customCheckbox">Novo</label>
+                    </div>
+                    <div class="custom-checkbox">
+                        <input type="checkbox" id="customCheckbox1" (change)="onCheckboxChange($event, 'Staro')" />
+                        <label for="customCheckbox1">Staro</label>
+                    </div>
+                    <div class="custom-checkbox">
+                        <input type="checkbox" id="customCheckbox2" (change)="onCheckboxChange($event, 'Outlet')" />
+                        <label for="customCheckbox2">Outlet</label>
+                    </div>
+                </div>
+                <div class="checkbox-container">
+                    <div>
+                        <p class="size">Velicina</p>
+                    </div>
+                    <div class="custom-checkbox">
+                        <input type="checkbox" id="customCheckbox3" (change)="onCheckboxSelectSize($event, 'S')" />
+                        <label for="customCheckbox3">S</label>
+                    </div>
+                    <div class="custom-checkbox">
+                        <input type="checkbox" id="customCheckbox4" (change)="onCheckboxSelectSize($event, 'M')" />
+                        <label for="customCheckbox4">M</label>
+                    </div>
+                    <div class="custom-checkbox">
+                        <input type="checkbox" id="customCheckbox5" (change)="onCheckboxSelectSize($event, 'L')" />
+                        <label for="customCheckbox5">L</label>
+                    </div>
+                    <div class="custom-checkbox">
+                        <input type="checkbox" id="customCheckbox6" (change)="onCheckboxSelectSize($event, 'XL')" />
+                        <label for="customCheckbox6">XL</label>
+                    </div>
+                    <div class="custom-checkbox">
+                        <input type="checkbox" id="customCheckbox7" (change)="onCheckboxSelectSize($event, 'XXL')" />
+                        <label for="customCheckbox7">XXL</label>
+                    </div>
+                </div>
+                <button type="submit" class="submit-button" (click)="clearFilter()">
+                    <div class="filter-button">
+                        <p>Clear Filter</p>
+                    </div>
+                </button>
+            </mat-nav-list>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

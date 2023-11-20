@@ -1,0 +1,127 @@
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 70vh;
+    margin-top: 50px;
+  
+  }
+  
+  .center{
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  h4{
+    font-weight: 200;
+  }
+  
+  .center h5{
+    font-size: 25px;
+    font-weight: 200;
+  }
+  
+  .center img{
+    width: 400px;
+  }
+
+  .submit-button{
+    background-color: rgb(174, 108, 33);
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 40%;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+  }
+ 
+  @media only screen and (max-width: 600px) {
+    .container {
+  height: 70vh;
+        margin-top: 20px; /* Prilagodite margine prema potrebi */
+        background-color: white;
+        border-radius: 20px;
+    }
+
+    .center {
+        position: relative;
+        width: 1000px;
+    }
+
+    h4 {
+        font-weight: 200; /* Prilagodite font-weight prema potrebi */
+        font-size: 22px;
+    }
+
+    h2{
+      font-size: 35px;
+    }
+
+    .center h5 {
+        font-size: 30px; /* Prilagodite veličinu fonta prema potrebi */
+        font-weight: 200; /* Prilagodite font-weight prema potrebi */
+    }
+
+    .center img{
+      width: 150px;
+    }
+
+    .submit-button {
+        padding: 10px; /* Prilagodite padding dugmeta prema potrebi */
+        width: 80%; /* Prilagodite širinu dugmeta prema potrebi */
+        font-size: 14px; /* Prilagodite veličinu fonta dugmeta prema potrebi */
+        margin-top: 20px; /* Prilagodite marginu dugmeta prema potrebi */
+    }
+}
+
+@media only screen and (max-width: 450px) {
+  .container {
+height: 90vh;
+      margin-top: 20px; 
+      background-color: white;
+      border-radius: 20px;
+  }
+
+  .center {
+      position: relative;
+      width: 1117px;
+  }
+
+  h4 {
+      font-weight: 200; 
+      font-size:40px;
+      line-height: normal;
+      padding: 10px;
+  }
+
+  h2{
+    font-size: 50px;
+  }
+
+  .center h5 {
+      font-size: 45px; 
+      font-weight: 400;
+  }
+
+  .center img{
+    width: 150px;
+  }
+
+  .submit-button {
+      padding: 10px; 
+      width: 80%; 
+      font-size: 14px; 
+      margin-top: 20px; 
+  }
+}
+
+  
+
+  
+  
+
+  

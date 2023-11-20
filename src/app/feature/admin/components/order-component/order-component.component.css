@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    border: 1px solid grey;
+}
+
+.left-side{
+    flex:0.5;
+    padding: 20px;
+    border-radius: 2px sold grey;
+    text-align: center;
+    align-items: center;
+}
+
+.right-side{
+    display: flex;
+    justify-content: space-between;
+    flex:0.5;
+    padding: 20px;
+    font-weight: 500;
+}
+
+.product-info{
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+}

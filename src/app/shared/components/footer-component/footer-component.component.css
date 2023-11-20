@@ -1,0 +1,49 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(71, 66, 66);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+  
+  }
+
+  span{
+    color: rgb(174, 108, 33);
+  }
+  
+  .footer p{
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  @media only screen and (min-width: 600px) {
+    .footer {
+      flex-direction: row; /* Ako je širina ekrana veća od 600 piksela, postavite orijentaciju reda */
+    }
+
+    .footer p {
+      margin-top: 0; /* Ponovno postavite marginu ako je širina ekrana veća od 600 piksela */
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    .footer {
+      flex-direction: row; /* Ako je širina ekrana veća od 600 piksela, postavite orijentaciju reda */;
+    }
+
+  
+    .footer p{
+      font-size: 40px;
+      margin-top: 10px;
+      padding: 10px;
+    }
+  }
+
+
+  

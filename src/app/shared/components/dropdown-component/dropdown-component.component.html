@@ -1,0 +1,9 @@
+<div class="menu">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>person_outline</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" style="z-index: 100000;">
+    <button mat-menu-item>{{currentUser?.user.email}}</button>
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
+</div>

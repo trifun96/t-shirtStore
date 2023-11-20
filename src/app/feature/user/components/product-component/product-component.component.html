@@ -1,0 +1,43 @@
+<div class="search-container" #sideNav>
+    <div class="form__group field">
+        <input type="input" class="form__field" placeholder="Search" name="search" id='search' [ngModel]="search"
+            (ngModelChange)="onSearch($event)" required />
+    </div>
+    <button type="submit" class="submit-button" (click)="openFilter()">
+        <div class="filter-button">
+            <mat-icon>filter_list</mat-icon>
+            <p>{{"filters" | translate}}</p>
+        </div>
+    </button>
+    <ng-container *ngIf="showSideNav">
+        <app-side-nav appClickOutside (clickOutside)="handleClickOutside()" (clearFilters)="clearAllFilters()"
+            (closeEvent)="onCloseSideBar()" (priceFilterChanged)="onChangeFilterPrice($event)"
+            (subCategoryChange)="applyFilterByCategory($event)"
+            (sizeFilterChange)="applyFilterBySize($event)"></app-side-nav>
+    </ng-container>
+</div>
+<div class="product-container">
+    <mat-card class="example-card" *ngFor="let data of products | paginate: { itemsPerPage: 8, currentPage: page }">
+        <div class="container">
+            <img [src]="data.image" (click)="openProductDetailModal(data)">
+            <div class="card-title">
+                    <mat-card-subtitle>{{data.title}}</mat-card-subtitle>
+                <div class="heart-icon"  title="Add to favorite" (click)="addToFavorite(data)">favorite_border</div>
+            </div>
+            <span class="price-container">{{data.price}} RSD</span>
+        </div>
+    </mat-card>
+    <div *ngIf="products && products.length === 0">
+        <app-search-message></app-search-message>
+    </div>
+    <div class="paginator" *ngIf="products && products.length !== 0 && products.length > 8 ">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </div>
+</div>
+
+<div *ngIf="showProductDetail">
+    <app-shared-modal (closeEvent)="closeSharedModal()">
+        <app-product-detail [data]="selectedProduct"
+            (closeProductModal)="closeSharedModal($event)"></app-product-detail>
+    </app-shared-modal>
+</div>

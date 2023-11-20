@@ -1,0 +1,21 @@
+.product-button{
+    margin: 30px;
+}
+
+.form__group {
+    position: relative;
+    width: 22%;
+}
+
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid gray;
+    outline: 0;
+    font-size: 1.3rem;
+    color: rgb(0, 0, 0);
+    background: transparent;
+    transition: border-color 0.2s;
+    margin: 30px;
+}

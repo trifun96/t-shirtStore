@@ -1,0 +1,24 @@
+<div class="container" *ngFor="let productData of products">
+    <div class="left-side">
+        <h1>Billing Information</h1>
+        <h4>Name: {{productData.fullName}} </h4>
+        <h4>Email: {{productData.email}} </h4>
+        <h4>Mobile phone: {{productData.mobilePhone}} </h4>
+        <h4>Address: {{productData.address}} </h4>
+        <h4>City: {{productData.city}} </h4>
+        <h4>Zip: {{productData.zip}} </h4>
+    </div>
+    <div class="right-side" *ngFor="let item of productData.products">
+        <div><img src={{item.image}} style="width: 300px; height: 300px;"></div>
+        <div class="product-info">
+            <h1>Product information</h1>
+            <h4>{{item.title}} </h4>
+            <h4>Price: {{item.price}} </h4>
+            <h4>Quantity: {{item.quantity}} </h4>
+            <h4>Size: {{item.size}} </h4>
+        </div>
+        <div>
+            <img src="assets/images/close.png" style="width: 25px; cursor: pointer;" (click)="deleteOrder(productData)">
+        </div>
+    </div>
+</div>

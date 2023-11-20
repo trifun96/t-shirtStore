@@ -1,0 +1,35 @@
+<div class="product-container" *ngIf="favoriteItems$ | async as favoriteItems">
+    <ng-container *ngIf="favoriteItems.length !== 0">
+    <mat-card class="example-card" *ngFor="let favoriteItems of favoriteItems" style="cursor: pointer;">
+        <div class="img">
+            <img [src]="favoriteItems.image" (click)="openProductDetailModal(favoriteItems)">
+            <div class="card-title">
+                    <mat-card-subtitle>{{favoriteItems.title}}</mat-card-subtitle>
+                    <img src="assets/images/close.png"
+                    style="width: 20px; cursor: pointer;" (click)="removeFavoriteItem(favoriteItems)">
+            </div>
+            <span class="price-container">{{favoriteItems.price}} RSD</span>
+        </div>
+    </mat-card>
+</ng-container>
+<ng-container *ngIf="favoriteItems.length === 0">
+    <div class="container">
+        <div class="center">
+          <h5>{{"favorite-title" | translate}}</h5>
+          <h4>{{"favorite-subtitle" | translate}}</h4>
+          <button routerLink="/product-page" class="add-to-cart">
+             {{"favorite-button" | translate}}
+          </button>
+        </div>
+      </div>
+    </ng-container>
+</div>
+
+<div *ngIf="isOpenProductDetailModal">
+    <app-shared-modal (closeEvent)="closeModal()">
+        <app-product-detail [data]="selectedProduct" (closeProductModal)="closeModal()"></app-product-detail>
+    </app-shared-modal>
+</div>
+<app-delivery-information></app-delivery-information>
+<app-newsletter></app-newsletter>
+<app-footer-information></app-footer-information>

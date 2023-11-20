@@ -1,0 +1,208 @@
+.content {
+  height: 100vh;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 350px;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  padding: 10px;
+  position: fixed;
+}
+
+mat-nav-list .title {
+  text-align: center;
+}
+
+.col-price {
+  font-weight: 200;
+}
+
+.filter-price {
+  display: flex;
+  text-align: center;
+}
+
+.filter-price p {
+  margin-top: 15px;
+}
+
+.custom-range {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  background: #ddd;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.custom-range:hover {
+  opacity: 1;
+}
+
+.custom-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(174, 108, 33);
+  cursor: pointer;
+}
+
+.custom-checkbox {
+  position: relative;
+  margin-top: 20px;
+
+}
+
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox label {
+  position: relative;
+  cursor: pointer;
+  padding-left: 35px;
+  margin-top: 15px;
+}
+
+.custom-checkbox label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgb(174, 108, 33);
+  background-color: #fff;
+}
+
+.custom-checkbox input[type="checkbox"]:checked+label::before {
+  background-color: rgb(174, 108, 33);
+}
+
+.custom-checkbox label::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox input[type="checkbox"]:checked+label::after {
+  display: block;
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.submit-button {
+  position: absolute;
+  background-color: #333;
+  color: rgb(0, 0, 0);
+  bottom: 70px;
+  width: 50%;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+
+
+}
+
+.filter-button {
+  margin-top: 8px;
+  color: white;
+}
+
+.side-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 767px) {
+  .content {
+    height: 190vh;
+    width: 589px;
+    border-radius: 0;
+    box-shadow: none; 
+  }
+
+  .filter-price{
+    margin-top: 50px; 
+    font-size: 45px;
+  }
+
+  .custom-range {
+    height: 8px;
+    margin-top: 40px;
+  }
+
+  .submit-button {
+    bottom: 20px;
+    width: 80%;
+    font-size: 40px; 
+  }
+
+  .filter-button {
+    text-align: center; 
+  }
+
+  .checkbox-container {
+    font-size: 35px;
+    padding:10px;
+  }
+
+  .custom-checkbox{
+    margin-top: 50px;
+  }
+
+
+  .custom-checkbox[_ngcontent-ng-c2818069973] label[_ngcontent-ng-c2818069973]::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgb(174, 108, 33);
+    background-color: #fff;
+}
+
+.custom-checkbox[_ngcontent-ng-c2818069973] label[_ngcontent-ng-c2818069973] {
+  position: relative;
+  cursor: pointer;
+  padding-left: 57px;
+}
+
+    .title p{
+      font-size: 45px;
+      padding: 37px;
+    }
+
+    .col-price p {
+      font-size: 45px;
+      margin-top: 24px;
+    }
+
+    .sort{
+      font-size: 40px;
+      margin-top: 60px;
+      padding: 0px 0px 50px 0px;
+    }
+
+    .size{
+      font-size: 45px;
+      padding: 40px 0px 50px 0px;
+    }
+}
