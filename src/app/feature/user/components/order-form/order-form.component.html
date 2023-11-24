@@ -1,31 +1,65 @@
-<div class="row">
-    <div class="col-75">
-        <div class="container">
-            <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+<div class="checkout-container">
+    <div class="form-container">
+        <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+            <h5>{{"total for payment" | translate}}: <span>{{totalPrice}} RSD</span></h5>
+            <label for="email" class="required">Email:</label>
+            <input type="email" id="email" name="email" required formControlName="email">
 
-                <div class="row">
-                    <div class="col-25">
-                        <h3>{{"billing-address" | translate}}</h3>
-                        <label for="fname"><i class="fa fa-user"></i>{{"full-name" | translate}}</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Trifun" formControlName="fullName">
-                        <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                        <input type="text" id="email" name="email" placeholder="trifun90@gmail.com"
-                            formControlName="email">
-                        <label for="adr"><i class="fa fa-address-card-o"></i> {{"address" | translate}}</label>
-                        <input type="text" id="adr" name="address" placeholder="Djordja Stanojevica 14"
-                            formControlName="address">
-                        <label for="city"><i class="fa fa-institution"></i>{{"mobilePhone" | translate}}</label>
-                        <input type="text" id="city" name="city" placeholder="Pozega" formControlName="mobilePhone">
-                        <label for="city"><i class="fa fa-institution"></i> {{"city" | translate}}</label>
-                        <input type="text" id="city" name="city" placeholder="Pozega" formControlName="city">
-                        <label for="state">{{"state" | translate}}</label>
-                        <input type="text" id="state" name="state" placeholder="Karadjordjeva" formControlName="state">
-                        <label for="zip">Zip</label>
-                        <input type="text" id="zip" name="zip" placeholder="31213" formControlName="zip">
-                    </div>
+            <div class="flex-container">
+                <div>
+                    <label for="firstName" class="required">{{"name" | translate}}:</label>
+                    <input type="text" id="firstName" name="firstName" required formControlName="name">
                 </div>
-                <input type="submit" value="Continue to checkout" class="btn">
-            </form>
-        </div>
+
+                <div>
+                    <label for="lastName" class="required">{{"surname" | translate}}:</label>
+                    <input type="text" id="lastName" name="lastName" required formControlName="surname">
+                </div>
+            </div>
+
+            <div class="flex-container">
+                <div>
+                    <label for="city" class="required">{{"city" | translate}}:</label>
+                    <input type="text" id="city" name="city" required formControlName="city">
+                </div>
+
+                <div>
+                    <label for="postalCode" class="required">{{"zip" | translate}}:</label>
+                    <input type="text" id="postalCode" name="postalCode" required formControlName="zip">
+                </div>
+            </div>
+
+            <label for="address" class="required">{{"mobilePhone" | translate}}:</label>
+            <input id="address" name="address" required formControlName="mobilePhone">
+
+
+            <label for="address" class="required">{{"address" | translate}}:</label>
+            <input id="address" name="address" required formControlName="address">
+
+            <label for="country" class="required">{{"country" | translate}}:</label>
+            <input type="text" id="country" name="country" required formControlName="country">
+
+            <label for="comment">{{"comment"| translate}}:</label>
+            <textarea id="comment" name="comment" rows="4"
+                placeholder="If you want, you can leave us the desired comment, note..."
+                formControlName="comment"></textarea>
+
+            <div class="option-delivery">
+                <h4>{{"option for delivery" | translate}}</h4>
+                <div class="options">
+                    <p>{{"delivery on address" | translate}}</p>
+                    <p>{{"free for orders" | translate}}</p>
+                </div>
+
+            </div>
+            <button type="submit" class="submit-button">
+                <div class="filter-button">
+                    <p>{{"confirm button" | translate}}</p>
+                </div>
+            </button>
+        </form>
     </div>
+    <app-expand-panel></app-expand-panel>
+
+
 </div>

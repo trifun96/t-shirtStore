@@ -1,117 +1,167 @@
 body {
-    font-family: Arial;
-    font-size: 17px;
-    padding: 8px;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  .row {
- max-width: 700px;
- margin: 0 auto;
- padding: 15px;
-  }
-  
-  .col-25 {
-    -ms-flex: 25%;
-    flex: 25%;
-  }
-  
-  .col-50 {
-    -ms-flex: 50%;
-    flex: 50%;
-  }
-  
-  .col-75 {
-    -ms-flex: 75%;
-    flex: 75%;
-  }
-  
-  .col-25,
-  .col-50,
-  .col-75 {
-    padding: 0 16px;
-  }
-  
-  .container {
-    background-color: #f2f2f2;
-    padding: 5px 20px 15px 20px;
-    border: 1px solid lightgrey;
-    border-radius: 7px;
-  }
-  
-  input[type=text] {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  label {
-    margin-bottom: 10px;
-    display: block;
-  }
-  
-  .icon-container {
-    margin-bottom: 20px;
-    padding: 7px 0;
-    font-size: 24px;
-  }
-  
-  .btn {
-    background-color: rgb(174, 108, 33);
-    color: white;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    width: 100%;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 17px;
-  }
-  
-  .btn:hover {
-    background-color: #45a049;
-  }
-  
-  a {
-    color: #2196F3;
-  }
-  
-  hr {
-    border: 1px solid lightgrey;
-  }
-  
-  span.price {
-    float: right;
-    color: grey;
-  }
-  
-
-  @media only screen and (max-width: 450px) {
-.container{
-  width: 1087px;
-  margin-top: 200px;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-.col-25 h3{
+.checkout-container {
+  display: flex;
+  max-width: 1450px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.form-container {
+  flex: 1;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+}
+
+.text-container {
+  flex: 1;
+  padding: 20px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-container > div {
+  flex: 1;
+  margin-right: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid lightgray;
+}
+
+.required::after {
+  content: '* ';
+}
+
+h4{
+  font-size: 26px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.form-container h5{
+  font-size: 17px;
+  padding-bottom: 30px;
+
+}
+
+.styled-radio {
+  position: absolute;
+  opacity: 0;
+}
+
+.styled-radio + label {
+  position: relative;
+  padding-left: 30px;
+  cursor: not-allowed;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.styled-radio + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  background-color: #000;
+}
+
+.options{
+  display: flex;
+  justify-content: space-between;
+  padding: 1px;
+  margin-bottom: 15px;
+}
+
+p{
+  font-size: 17px;
+  font-weight: 100;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #333;
+  color: white;
+  width: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+@media only screen and (max-width: 600px) {
+.text-container{
+  display: none;
+}
+
+.checkout-container{
+  width:1223px;
+  display: flex;
+  height: auto;
+  flex-direction: column-reverse;
+  margin: 0;
+  padding-bottom: 100px;
+}
+
+.form-container{
+  margin-top: 80px;
+}
+
+.flex-container{
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 40px;
+  padding: 15px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 50px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid lightgray;
+  font-size: 40px;
+}
+
+h4{
   font-size: 50px;
-  padding: 30px;
 }
 
-.col-25 label{
-font-size:35px;
-padding: 20px;
+p{
+  font-size: 40px;
+  padding: 20px;
+  line-height: normal;
 }
 
-.col-25 input{
-  font-size: 30px;
+h5{
+display: none;
 }
 
-.btn{
-  font-size: 35px;
-}
 }

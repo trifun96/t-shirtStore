@@ -58,6 +58,10 @@
   padding: 20px;
 }
 
+.card-title img{
+ width: 20px;
+}
+
 .price-container{
   padding: 12px;
   background-color: red;
@@ -101,16 +105,18 @@ mat-card-subtitle{
 }
 
 .center h5{
-  font-size: 30px;
+  font-size: 45px;
   padding: 5px;
 }
 
 .center h4{
-  font-size: 25px;
+  font-size: 35px;
+  padding: 15px;
+  line-height: normal;
 }
 
 .center button{
-  font-size: 25px;
+  font-size: 35px;
 }
 }
   
@@ -135,6 +141,11 @@ mat-card-subtitle{
 
 img{
 width: 500px;
+}
+
+.card-title img{
+  width: 25px;
+  height: 37px;
 }
 
   }

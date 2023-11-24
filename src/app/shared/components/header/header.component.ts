@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { User } from '../../models/userInterface.interface';
 import { AuthService } from 'src/app/core/services/auth-service.service';
 import { Observable } from 'rxjs';
@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   totalFavoriteItem$: Observable<number> = new Observable<number>();
   public isClicked:boolean;
   public mobileMenu:boolean = false;
+  public isOpenSideCart:boolean = false
 
   constructor(
     private authService: AuthService,
@@ -61,10 +62,6 @@ export class HeaderComponent implements OnInit {
     navMenu.style.display = "none"
   }
 
-closeManu(){
-  this.isClicked = true;
-}
-
 toggleDropdown() {
   var dropdownContent = document.getElementById("dropdownContent");
   dropdownContent.classList.toggle("show");
@@ -74,5 +71,13 @@ toggleDropdown() {
     this.authService.logout();
     this.currentUser = null;
     this.isLoggedIn = false;
+  }
+
+  openSideCart() {
+    this.isOpenSideCart = !this.isOpenSideCart
+  }
+
+  closeSideCart(){
+    this.isOpenSideCart = false
   }
 }

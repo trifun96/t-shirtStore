@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/core/services/api-service.service';
 import { CartService } from 'src/app/core/services/cart-service.service';
 import { OrderInterface } from 'src/app/shared/models/order.interface';
@@ -22,33 +23,40 @@ export class OrderFormComponent implements OnInit {
   public cartItemList: ProductInterface[] = [];
   public cartItem: ProductInterface;
   private orderModelObject: OrderInterface = new OrderInterface();
+  public totalPrice:number
 
   ngOnInit(): void {
     this.cartService.getProducts().subscribe((res) => {
       this.cartItemList = res;
+      this.totalPrice = this.cartService.calculateTotalPrice();
     });
   }
 
   orderForm = new FormGroup({
-    fullName: new FormControl(this.orderModelObject.fullName),
+    name: new FormControl(this.orderModelObject.name),
+    surname: new FormControl(this.orderModelObject.surname),
     email: new FormControl(this.orderModelObject.email),
     address: new FormControl(this.orderModelObject.address),
     mobilePhone: new FormControl(this.orderModelObject.mobilePhone),
     city: new FormControl(this.orderModelObject.city),
-    state: new FormControl(this.orderModelObject.state),
+    country: new FormControl(this.orderModelObject.country),
     zip: new FormControl(this.orderModelObject.zip),
+    comment: new FormControl(this.orderModelObject.comment),
     products: new FormControl(this.orderModelObject.products),
   });
 
   onSubmit() {
-    this.orderModelObject.fullName = this.orderForm.value.fullName;
+    this.orderModelObject.name = this.orderForm.value.name;
+    this.orderModelObject.surname = this.orderForm.value.surname;
     this.orderModelObject.email = this.orderForm.value.email;
     this.orderModelObject.address = this.orderForm.value.address;
     this.orderModelObject.mobilePhone = this.orderForm.value.mobilePhone;
     this.orderModelObject.city = this.orderForm.value.city;
-    this.orderModelObject.state = this.orderForm.value.state;
+    this.orderModelObject.country = this.orderForm.value.country;
     this.orderModelObject.zip = this.orderForm.value.zip;
+    this.orderModelObject.comment = this.orderForm.value.comment;
     this.orderModelObject.products = this.cartItemList;
+    console.log(this.orderModelObject)
     const request:OrderInterface = this.orderModelObject;
     this.api.postOrders(request).subscribe(() => {
       this.toast.success('You have successfully ordered your product.');

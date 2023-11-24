@@ -15,10 +15,15 @@
                       <a class="remove">
                         <img [src]="cartItem.image" alt="">
                         <h3 (click)="removeProduct(cartItem)">{{"remove-button" | translate}}</h3>
+  
                       </a>
                     </header>
                     <div class="content">
-                      <h1>{{cartItem.title}}</h1>
+                      <div class="img1" style="display: flex; justify-content: space-between;">
+                        <h1>{{cartItem.title}}</h1>
+                        <img src="assets/images/close.png" (click)="removeProduct(cartItem)">
+                      </div>
+               
                       {{cartItem.description}}
                       <h1>{{"size" | translate}}: {{cartItem.size}}</h1>
                     </div>

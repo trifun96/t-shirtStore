@@ -54,6 +54,13 @@
     font-size: 15px;
 }
 
+.price-container[_ngcontent-ng-c4000375011] {
+    padding: 10px;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+}
+
 .title {
     max-width: 1450px;
     margin: 0 auto;
@@ -184,6 +191,7 @@ mat-card-content p {
         width: 900px;
         display: flex;
         justify-content: space-between;
+        margin-top: 120px;
     }
 
     .submit-button {
@@ -212,13 +220,13 @@ mat-card-content p {
         font-size: 31px;
     }
 
-}
+    .price-container[_ngcontent-ng-c4000375011][_ngcontent-ng-c4000375011] {
+        padding: 10px;
+        background-color: red;
+        color: white;
+        font-size: 35px;
+    }
 
-.price-container {
-    padding: 12px;
-    background-color: red;
-    color: white;
-    font-size: 25px;
 }
 
 .form__field {

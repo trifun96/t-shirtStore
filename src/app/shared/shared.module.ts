@@ -26,9 +26,13 @@ import { EmptyCardComponent } from './components/empty-card/empty-card.component
 import { ProductModalComponent } from './components/product-modal/product-modal.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { DropdownComponent} from './components/dropdown-component/dropdown-component.component';
+import { DeliveryInformationComponent } from './components/delivery-information/delivery-information.component';
+import { SideCartComponent } from './components/side-cart/side-cart.component';
+import { ExpandPanelComponent } from './components/expand-panel/expand-panel.component';
+import { PluralizePipe } from './pipes/pluralize.pipe';
 
 @NgModule({
-  declarations: [HeaderComponent, SharedModalComponent, SharedModalComponent, FooterComponent, SearchMessageComponent, SideNavComponent, ProductDetailComponent, EmptyCardComponent, ProductModalComponent, DropdownComponent],
+  declarations: [HeaderComponent, DeliveryInformationComponent, SharedModalComponent, SharedModalComponent, FooterComponent, SearchMessageComponent, SideNavComponent, ProductDetailComponent, EmptyCardComponent, ProductModalComponent, DropdownComponent, SideCartComponent, ExpandPanelComponent, PluralizePipe],
   imports: [
     CommonModule,
     RouterModule,
@@ -50,6 +54,6 @@ import { DropdownComponent} from './components/dropdown-component/dropdown-compo
     ToastrModule.forRoot(),
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
   ],
-   exports:[RouterModule, ReactiveFormsModule, MatListModule,ToastrModule, MatMenuModule, MatSidenavModule, MatFormFieldModule, MatToolbarModule, MatCardModule, NgIf, MatPaginatorModule, MatSidenavModule, NgxPaginationModule, NgxSpinnerModule, FormsModule, HttpClientModule, MatIconModule,SharedModalComponent,MatButtonModule,CommonModule, HeaderComponent, FooterComponent, SearchMessageComponent, SideNavComponent, ProductDetailComponent, EmptyCardComponent, ProductModalComponent, DropdownComponent]
+   exports:[RouterModule, ReactiveFormsModule, DeliveryInformationComponent, ExpandPanelComponent, MatListModule, ToastrModule, MatMenuModule, MatSidenavModule, MatFormFieldModule, MatToolbarModule, MatCardModule, NgIf, MatPaginatorModule, MatSidenavModule, NgxPaginationModule, NgxSpinnerModule, FormsModule, PluralizePipe, HttpClientModule, MatIconModule,SharedModalComponent,MatButtonModule,CommonModule, HeaderComponent, FooterComponent, SearchMessageComponent, SideNavComponent, ProductDetailComponent, EmptyCardComponent, ProductModalComponent, DropdownComponent]
 })
 export class SharedModule { }

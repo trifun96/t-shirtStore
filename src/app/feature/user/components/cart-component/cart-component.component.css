@@ -229,6 +229,13 @@ a:hover {
   transition: margin .15s linear;
 }
 
+.img1 img{
+  width: 20px;
+  height: 20px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
 .qt,
 .qt-plus,
 .qt-minus {
@@ -439,7 +446,8 @@ a:hover {
 
   .cart-container {
     padding: 100px;
-    height: auto;
+    height: 240vh;
+    margin-top: 100px;
   }
 
 
@@ -498,6 +506,13 @@ a:hover {
     padding: 30px 0px 30px 0px
   }
 
+  .img1 img{
+    width: 30px;
+    height: 30px;
+    margin-top: 23px;
+    cursor: pointer;
+  }
+
   #site-footer h1 {
     background: #fcfcfc;
     border: 1px solid #ccc;
@@ -514,4 +529,19 @@ a:hover {
     font-weight: 100;
   margin: 0;
   }
+
+  header h3{
+    display: none;
+  }
+
+  .product[_ngcontent-ng-c833171170] footer.content[_ngcontent-ng-c833171170] {
+    height: 65px;
+    margin: 6px 0 0 0;
+    padding: 0;
+}
+
+.product[_ngcontent-ng-c833171170] footer[_ngcontent-ng-c833171170] .price[_ngcontent-ng-c833171170], .product[_ngcontent-ng-c833171170] footer[_ngcontent-ng-c833171170] .full-price[_ngcontent-ng-c833171170] {
+  font-size: 41px;
+  padding: 6px 10px;
+}
 }

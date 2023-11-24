@@ -17,6 +17,27 @@
             <button class="custom-button" (click)="buyNowProduct(data)">{{"buy-now" | translate}}</button>
             <span class="heart-icon" title="Add to favorite" (click)="addToFavorite(data)">favorite_border</span>
           </div>
-        <div class="delivery"><p>Delivery</p></div>
+            <div class="wrapper">
+                <div class="info">
+                  <div class="flex">
+                    <span>
+                      <mat-icon>local_shipping</mat-icon>
+                    </span>
+                    <p>{{"fast-delivery" | translate}}</p>
+                  </div>
+                  <div class="flex">
+                    <span>
+                      <mat-icon>credit_card</mat-icon>
+                    </span>
+                    <p>{{"hire-purchase" | translate}}</p>
+                  </div>
+                  <div class="flex">
+                    <span>
+                      <mat-icon>restore</mat-icon>
+                    </span>
+                    <p>{{"return-money" | translate}}</p>
+                  </div>
+                </div>
+              </div>
     </div>
 </div>

@@ -1,0 +1,16 @@
+<div class="expand-container">
+    <h4>{{"order review" | translate}}:</h4>
+    <h5 class="mobileShowTitle">{{"total for payment" | translate}}: <span>{{totalPrice}} RSD</span></h5>
+    <button class="expand-button" (click)="togglePanel()"><h6>{{numberOfProductInCart$ | async | pluralize: 'artical' : 'articals'}} in cart</h6> <div class="arrow"></div></button>
+    <div class="expand-panel" id="myExpandPanel">
+      <div class="expand-content" *ngFor="let cartItem of cartItemList">
+        <img src="{{cartItem.image}}" alt="">
+        <div class="article-content">
+            <h3>{{cartItem.title}}</h3>
+            <p>Quantity: {{cartItem.quantity}}</p>
+            <p>Size: {{cartItem.size}}</p>
+            <p>Price: {{cartItem.price}}</p>
+        </div>
+      </div>
+    </div>
+  </div>

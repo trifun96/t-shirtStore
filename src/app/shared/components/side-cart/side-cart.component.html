@@ -1,0 +1,44 @@
+<mat-sidenav-container>
+    <mat-sidenav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <img class="close-img" src="assets/images/close.png" (click)="closeSideCartMenu()">
+            <mat-nav-list>
+                <div class="title-container">
+                    <a class="title" mat-list-item><p>{{"total with tax" | translate}}</p></a>
+                    <span>{{totalPrice}} RSD</span>
+                </div>
+                <hr>
+                <p class="items-cart">{{numberOfProductInCart$ | async | pluralize: 'artical' : 'articals'}} in cart</p>
+                <div class="content-side-cart" *ngFor="let data of cartItem; let i = index">
+                    <img class="img" src="assets/images/close.png" (click)="removeProduct(data) ">
+                    <div>
+                        <div class="product-image">
+                            <img src="{{data.image}}" alt="Product Image">
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <h4>{{data.title}}</h4>
+                        <p> {{"size" | translate}}: <span>{{data.size}}</span></p>
+                        <p> {{"price" | translate}}: <span>{{data.price}}</span></p>
+                        <div style="display: flex;">
+                        <p>{{"quantity" | translate}}</p>
+                        <div>
+                            <span class="qt-minus" (click)="decreaseQuantity(data)">-</span>
+                            <span class="qt">{{data.quantity}}</span>
+                            <span class="qt-plus" (click)="increaseQuantity(data)">+</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                    <button type="submit" class="submit-button">
+                        <div class="filter-button">
+                            <p routerLink="/order-form" (click)="closeSideCartMenu()">Continue to Payment</p>
+                        </div>
+                    </button>
+             
+            </mat-nav-list>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -5,8 +5,7 @@
             <img [src]="favoriteItems.image" (click)="openProductDetailModal(favoriteItems)">
             <div class="card-title">
                     <mat-card-subtitle>{{favoriteItems.title}}</mat-card-subtitle>
-                    <img src="assets/images/close.png"
-                    style="width: 20px; cursor: pointer;" (click)="removeFavoriteItem(favoriteItems)">
+                    <img src="assets/images/close.png" (click)="removeFavoriteItem(favoriteItems)">
             </div>
             <span class="price-container">{{favoriteItems.price}} RSD</span>
         </div>

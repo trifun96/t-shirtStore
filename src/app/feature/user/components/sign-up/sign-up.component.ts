@@ -13,12 +13,12 @@ import { ApiService } from 'src/app/core/services/api-service.service';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
 })
-export class SignUpComponent implements OnInit{
+export class SignUpComponent implements OnInit {
   constructor(
     private store: Store<IState>,
     private formBuilder: FormBuilder,
     private auth: AuthService,
-    private apiService:ApiService,
+    private apiService: ApiService
   ) {}
 
   public registrationUsers;
@@ -29,19 +29,21 @@ export class SignUpComponent implements OnInit{
     email: ['', [Validators.required]],
   });
 
-  public data$:Observable<ErrorInterface> = this.store.select((state:IState) => state.authReducer.validationErrors);
+  public data$: Observable<ErrorInterface> = this.store.select(
+    (state: IState) => state.authReducer.validationErrors
+  );
 
   ngOnInit(): void {
     this.data$.subscribe((res) => {
-      console.log(res)
-    })
+      console.log(res);
+    });
   }
 
-getRegistrationUser() {
-  this.apiService.getRegistrationUser().subscribe((res) => {
-this.registrationUsers = res;
-  })
-}
+  getRegistrationUser() {
+    this.apiService.getRegistrationUser().subscribe((res) => {
+      this.registrationUsers = res;
+    });
+  }
 
   onSubmit() {
     this.formGroup.getRawValue();

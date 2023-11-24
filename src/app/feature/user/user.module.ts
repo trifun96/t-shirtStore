@@ -13,7 +13,6 @@ import { CartComponent } from './components/cart-component/cart-component.compon
 import { FavoriteComponent } from './components/favorite-component/favorite-component.component';
 import { OrderFormComponent } from './components/order-form/order-form.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
-import { DeliveryInformationComponent } from './components/delivery-information/delivery-information.component';
 import { FooterInformationComponent } from './components/footer-information/footer-information.component';
 import { BannerPageComponent } from './components/banner-page/banner-page.component';
 import { NewCollectionComponent } from './components/new-collection/new-collection.component';
@@ -35,7 +34,6 @@ import { MatButtonModule } from '@angular/material/button';
     FavoriteComponent,
     OrderFormComponent,
     NewsletterComponent,
-    DeliveryInformationComponent,
     FooterInformationComponent,
     BannerPageComponent,
     NewCollectionComponent,

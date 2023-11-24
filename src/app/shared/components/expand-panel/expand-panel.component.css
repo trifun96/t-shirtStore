@@ -1,0 +1,161 @@
+
+.expand-container {
+    width: 80%;
+    max-width: 600px;
+    margin-top: 60px;
+    margin-left: 150px;
+  }
+
+  button{
+    width: 79%;
+  }
+  
+  .expand-panel {
+    width: 450px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+    border-bottom: 1px solid grey;
+    margin-bottom: 16px;
+    margin-left: 128px;
+  }
+  
+  .expand-content {
+    padding: 16px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .article-content{
+    padding: 10px;
+  }
+  
+  .expand-content img{
+    width: 123px;
+    height: 130px;
+  }
+  
+  .article-content h3{
+    font-weight: 400;
+  }
+  
+  .article-content p{
+    font-weight: 300;
+  }
+  
+  .expand-button {
+    width: 450px;
+    cursor: pointer;
+    padding: 0px 16px;
+    background-color: rgb(252, 243, 243);
+    color: #000000;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 128px;
+  }
+  
+  .arrow {
+    width: 10px;
+    height: 10px;
+    border: solid #000000;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    margin-left: 8px;
+    transition: transform 0.3s ease-out;
+  }
+  
+  .expanded .arrow {
+    transform: rotate(-135deg);
+  }
+  
+  h4{
+    margin-left: 128px;
+    font-size: 22px;
+    font-weight: 500;
+  }
+  
+  h5{
+    font-size: 17px;
+    font-weight: 500;
+    padding-bottom: 20px;
+  }
+  
+  h6{
+    font-size: 14px;
+    text-align: left;
+    font-weight: 300;
+  
+  }
+
+  .mobileShowTitle{
+    display: none;
+  }
+
+  @media (max-width: 600px) {
+    .expand-container {
+     margin-left: 30px;
+    }
+  
+    .expand-panel {
+      margin-left: 0;
+      width: 1000px;
+      border: none;
+    }
+  
+    .expand-button {
+      margin-left: 0;
+      margin-top: 60px;
+      font-size: 37px;
+    }
+  
+    h4{
+        display: none;
+    }
+
+    h6{
+        font-size:46px;
+        font-weight: 500;
+    }
+
+    h3{
+        font-size: 40px;
+    }
+
+    p{
+        font-size: 36px;
+        padding: 10px;
+    }
+
+    .arrow{
+        display: none;
+    }
+
+    .mobileShowTitle{
+        display: block;
+        font-size: 43px;
+        font-weight: 500;
+        margin-top: 100px;
+    }
+  
+  .expand-content {
+    padding: 16px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .article-content{
+    padding: 25px;
+  }
+
+  .expand-button{
+    width:1000px;
+  }
+
+  .expand-content[_ngcontent-ng-c2333158214] img[_ngcontent-ng-c2333158214] {
+    width: 300px;
+    height: 300px;
+}
+  }
